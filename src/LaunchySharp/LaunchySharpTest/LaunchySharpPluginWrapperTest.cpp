@@ -16,7 +16,9 @@ namespace LaunchySharp {
 			launchItem = 0x80
 		};
 
-		int totalMask = init | getID | getName ;//| getIcon | getLabels;
+		int totalMask = 
+			init | getID | getName | getIcon | 
+			getLabels | getResults | getCatalog | launchItem;
 	}
 
 	ref class FakePlugin: LaunchySharp::IPlugin
