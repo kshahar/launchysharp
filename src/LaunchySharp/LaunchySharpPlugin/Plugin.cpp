@@ -1,3 +1,4 @@
+#include "Precompiled.h"
 #include "LaunchySharpPlugin/Plugin.h"
 #include <QTimerEvent>
 #include <QEvent>

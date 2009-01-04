@@ -34,6 +34,9 @@ namespace LaunchySharpCpp
 
 		virtual void launchyHide();
 
+		// Should not be used in production
+		void setPluginForTesting(LaunchySharp::IPlugin^ plugin);
+
 	private:
 		msclr::auto_gcroot< LaunchySharp::IPlugin^ > m_plugin;
 	};

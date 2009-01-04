@@ -1,3 +1,4 @@
+#include "Precompiled.h"
 #include "LaunchySharpCpp/InputData.h"
 #include "LaunchySharpCpp/StringConversions.h"
 #include "LaunchySharpCpp/CatItemConverter.h"

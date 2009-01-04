@@ -1,25 +1,45 @@
+#include "Precompiled.h"
+#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include "LaunchySharpCpp/LaunchySharpPluginWrapper.h"
 
 namespace LaunchySharp {
 	using namespace System::Collections::Generic;
 
+	typedef System::String^ SystemString;
+
 	namespace FakePluginFunctionsMask {
 		enum Enum {
 			init = 0x1,
 			getID = 0x2,
 			getName = 0x4,
-			getIcon = 0x8,
-			getLabels = 0x10,
-			getResults = 0x20,
-			getCatalog = 0x40,
-			launchItem = 0x80
+			getLabels = 0x8,
+			getResults = 0x10,
+			getCatalog = 0x20,
+			launchItem = 0x40
 		};
 
 		int totalMask = 
-			init | getID | getName | getIcon | 
-			getLabels | getResults | getCatalog | launchItem;
+			init | getID | getName | getLabels |
+			getResults | getCatalog | launchItem;
 	}
+
+	/*
+	ref class MockPlugin: LaunchySharp::IPlugin
+	{
+	public:
+		MOCK_METHOD0(init, void());
+		MOCK_METHOD0(getID, int());
+		MOCK_METHOD0(getName, SystemString());
+		MOCK_METHOD1(getLabels, void(List<LaunchySharp::IInputData^>^ inputDataList));
+		MOCK_METHOD2(getResults, void(List<IInputData^>^ inputDataList, 
+			List<ICatItem^>^ resultsList);
+		MOCK_METHOD1(getCatalog, void(
+			List<ICatItem^>^ catalogItems));
+		MOCK_METHOD2(getCatalog, void(
+			List<IInputData^>^ inputDataList, ICatItem^ item);
+	};
+	*/
 
 	ref class FakePlugin: LaunchySharp::IPlugin
 	{
@@ -43,11 +63,6 @@ namespace LaunchySharp {
 		virtual System::String^ getName()
 		{
 			mask |= FakePluginFunctionsMask::getName;
-			return gcnew System::String(L"");
-		}
-		virtual System::String^ getIcon()
-		{
-			mask |= FakePluginFunctionsMask::getIcon;
 			return gcnew System::String(L"");
 		}
 		virtual void getLabels(

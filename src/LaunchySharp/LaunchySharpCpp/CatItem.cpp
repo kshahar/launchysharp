@@ -1,3 +1,4 @@
+#include "Precompiled.h"
 #include "CatItem.h"
 
 namespace LaunchySharpCpp

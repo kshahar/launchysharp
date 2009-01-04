@@ -19,11 +19,6 @@ namespace LaunchySharpCpp
 			return gcnew System::String(L"TestPlugin");
 		}
 
-		virtual System::String^ getIcon()
-		{
-			return gcnew System::String(L"");
-		}
-
 		virtual void getLabels(
 			System::Collections::Generic::List<LaunchySharp::IInputData^>^ inputDataList)
 		{

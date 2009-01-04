@@ -1,3 +1,4 @@
+#include "Precompiled.h"
 #include "LaunchySharpCpp/StringConversions.h"
 #using <mscorlib.dll>
 #include <vcclr.h>

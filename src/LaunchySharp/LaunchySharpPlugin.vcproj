@@ -340,7 +340,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing $(InputFileName)"
-							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
+							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir) -fPrecompiled.h -f$(InputFileName)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
 							Outputs="$(InputDir)\moc_$(InputName).cpp"
 						/>
 					</FileConfiguration>
@@ -350,7 +350,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing $(InputFileName)"
-							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
+							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir) -fPrecompiled.h -f$(InputFileName)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
 							Outputs="$(InputDir)\moc_$(InputName).cpp"
 						/>
 					</FileConfiguration>
@@ -364,7 +364,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing $(InputFileName)"
-							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
+							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir) -fPrecompiled.h -f$(InputFileName)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
 							Outputs="$(InputDir)\moc_$(InputName).cpp"
 						/>
 					</FileConfiguration>
@@ -374,7 +374,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing $(InputFileName)"
-							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
+							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir) -fPrecompiled.h -f$(InputFileName)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
 							Outputs="$(InputDir)\moc_$(InputName).cpp"
 						/>
 					</FileConfiguration>

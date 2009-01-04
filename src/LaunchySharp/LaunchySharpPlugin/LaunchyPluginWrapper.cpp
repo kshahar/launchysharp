@@ -1,3 +1,4 @@
+#include "Precompiled.h"
 #include "LaunchySharpPlugin/LaunchyPluginWrapper.h"
 #include "Launchy/Plugin.h"
 

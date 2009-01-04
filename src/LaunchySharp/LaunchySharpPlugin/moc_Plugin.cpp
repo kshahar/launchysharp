@@ -1,12 +1,13 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Plugin.h'
 **
-** Created: Sat Jan 3 22:52:05 2009
+** Created: Sun Jan 4 22:31:08 2009
 **      by: The Qt Meta Object Compiler version 59 (Qt 4.4.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include "Precompiled.h"
 #include "Plugin.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'Plugin.h' doesn't include <QObject>."

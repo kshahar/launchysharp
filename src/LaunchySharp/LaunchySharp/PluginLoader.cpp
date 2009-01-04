@@ -1,3 +1,4 @@
+#include "Precompiled.h"
 #include <LaunchySharp/PluginLoader.h>
 
 using namespace System;

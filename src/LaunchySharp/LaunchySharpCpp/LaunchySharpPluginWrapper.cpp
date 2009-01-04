@@ -1,3 +1,4 @@
+#include "Precompiled.h"
 #include "LaunchySharpCpp/LaunchySharpPluginWrapper.h"
 #include "LaunchySharpCpp/InputData.h"
 #include "LaunchySharpCpp/StringConversions.h"
@@ -29,19 +30,22 @@ void LaunchySharpPluginWrapper::getName(QString* pName)
 
 void LaunchySharpPluginWrapper::getLabels(QList<::InputData>* pInputDataList)
 {
-	//List< LaunchySharp::IInputData > inputDataList;
+	m_plugin->getLabels(nullptr);
 }
 
 void LaunchySharpPluginWrapper::getResults(QList<::InputData>* id, QList<::CatItem>* results)
 {
+	m_plugin->getResults(nullptr, nullptr);
 }
 
 void LaunchySharpPluginWrapper::getCatalog(QList<::CatItem>* items)
 {
+	m_plugin->getCatalog(nullptr);
 }
 
 void LaunchySharpPluginWrapper::launchItem(QList<::InputData>*, ::CatItem*)
 {
+	m_plugin->launchItem(nullptr, nullptr);
 }
 
 bool LaunchySharpPluginWrapper::hasDialog()
@@ -63,6 +67,11 @@ void LaunchySharpPluginWrapper::launchyShow()
 
 void LaunchySharpPluginWrapper::launchyHide()
 {
+}
+
+void LaunchySharpPluginWrapper::setPluginForTesting(LaunchySharp::IPlugin^ plugin)
+{
+	m_plugin = plugin;
 }
 
 }
