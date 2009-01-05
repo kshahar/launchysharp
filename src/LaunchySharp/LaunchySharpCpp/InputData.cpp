@@ -25,10 +25,12 @@ bool InputData::hasLabel(unsigned int label)
 
 void InputData::setID(unsigned int id)
 {
+	m_inputData.setID(id);
 }
 
-void InputData::getID()
+unsigned int InputData::getID()
 {
+	return m_inputData.getID();
 }
 
 System::String^ InputData::getText()

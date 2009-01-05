@@ -5,7 +5,7 @@ namespace LaunchySharpCpp
 	ref class TestPlugin: LaunchySharp::IPlugin
 	{
 	public:
-		virtual void init()
+		virtual void init(LaunchySharp::IPluginHost^ pluginHost)
 		{
 		}
 

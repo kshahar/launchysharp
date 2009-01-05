@@ -4,7 +4,7 @@ namespace LaunchySharp
 {
 	public interface IPlugin
 	{
-		void init();
+		void init(IPluginHost pluginHost);
 		int getID();
 		string getName();
 		void getLabels(List<IInputData> inputDataList);
@@ -17,18 +17,14 @@ namespace LaunchySharp
 		//void LaunchySharpPluginWrapper::launchyShow();
 		//void LaunchySharpPluginWrapper::launchyHide();
 	}
+	
+	public interface IPluginHost
+	{
+		ICatItemFactory catItemFactory();
+	}
 
 	public interface ICatItem
-	{
-		/*CatItem(string _fullPath, string _shortName, int _id, string _iconPath)
-		{
-			fullPath = _fullPath;
-			shortName = _shortName;
-			id = _id;
-			iconPath = _iconPath;
-			usage = 0;
-		}*/
-		
+	{	
 		/// The full path of the file to execute
 		string getFullPath();
 		
@@ -48,6 +44,12 @@ namespace LaunchySharp
 		int getID();
 	}
 	
+	public interface ICatItemFactory
+	{
+		ICatItem createCatItem(string fullPath, string shortName, int id, 
+			string iconPath);
+	}
+	
 	public interface IInputData
 	{
 		// Get the labels applied to this query segment.
@@ -63,7 +65,7 @@ namespace LaunchySharp
 		void setID(uint id);
 		
 		// Returns the current owner id of the query.
-		void getID();
+		uint getID();
 		
 		// Get the text of the query segment.
 		string getText();

@@ -348,6 +348,10 @@
 				Name="Tests"
 				>
 				<File
+					RelativePath=".\LaunchySharpCpp\testing\InputDataTest.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\testing\LaunchySharpPluginWrapperTest.cpp"
 					>
 				</File>

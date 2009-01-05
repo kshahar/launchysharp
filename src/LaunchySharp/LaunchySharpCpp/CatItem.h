@@ -1,12 +1,23 @@
 #pragma once
 
 #include "Launchy/Catalog.h"
-
 namespace LaunchySharpCpp
 {
+	//! Compare Launchy CatItem to LaunchySharp::ICatItem
+	bool operator==(::CatItem& launchyCatItem, LaunchySharp::ICatItem^ sharpCatItem);
+
+	//! Compare Launchy CatItem to LaunchySharp::ICatItem
+	bool operator==(LaunchySharp::ICatItem^ sharpCatItem, ::CatItem& launchyCatItem);
+
 	ref class CatItem: LaunchySharp::ICatItem
 	{
 	public:
+		CatItem(System::String^ full, System::String^ shortN);
+		CatItem(System::String^ full, System::String^ shortN, unsigned int id);
+		CatItem(System::String^ full, System::String^ shortN, unsigned int id, System::String^ iconPath);
+		CatItem(System::String^ full, System::String^ shortN, unsigned int id,
+			System::String^ iconPath, unsigned int usage, System::String^ lowName);
+
 		/// The full path of the file to execute
 		virtual System::String^ getFullPath();
 		

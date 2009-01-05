@@ -11,7 +11,7 @@ namespace LaunchySharpCpp
 	ref class EmptyPlugin: LaunchySharp::IPlugin
 	{
 	public:
-		virtual void init()
+		virtual void init(LaunchySharp::IPluginHost^ pluginHost)
 		{
 		}
 		virtual int getID()

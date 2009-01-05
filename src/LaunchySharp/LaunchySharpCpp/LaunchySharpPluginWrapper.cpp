@@ -14,7 +14,7 @@ LaunchySharpPluginWrapper::LaunchySharpPluginWrapper(LaunchySharp::IPlugin^ plug
 
 void LaunchySharpPluginWrapper::init()
 {
-	m_plugin->init();
+	m_plugin->init(nullptr);
 }
 
 void LaunchySharpPluginWrapper::getID(uint* pId)
@@ -33,17 +33,19 @@ void LaunchySharpPluginWrapper::getLabels(QList<::InputData>* pInputDataList)
 	m_plugin->getLabels(nullptr);
 }
 
-void LaunchySharpPluginWrapper::getResults(QList<::InputData>* id, QList<::CatItem>* results)
+void LaunchySharpPluginWrapper::getResults(
+	QList<::InputData>* pInputDataList, QList<::CatItem>* pResultsList)
 {
 	m_plugin->getResults(nullptr, nullptr);
 }
 
-void LaunchySharpPluginWrapper::getCatalog(QList<::CatItem>* items)
+void LaunchySharpPluginWrapper::getCatalog(QList<::CatItem>* pCatalogItems)
 {
 	m_plugin->getCatalog(nullptr);
 }
 
-void LaunchySharpPluginWrapper::launchItem(QList<::InputData>*, ::CatItem*)
+void LaunchySharpPluginWrapper::launchItem(
+	QList<::InputData>* pInputDataList, ::CatItem* pItemToLaunch)
 {
 	m_plugin->launchItem(nullptr, nullptr);
 }
@@ -55,18 +57,22 @@ bool LaunchySharpPluginWrapper::hasDialog()
 
 void LaunchySharpPluginWrapper::doDialog(QWidget* parent, QWidget**)
 {
+	// Not Implemented
 }
 
 void LaunchySharpPluginWrapper::endDialog(bool accept)
 {
+	// Not Implemented
 }
 
 void LaunchySharpPluginWrapper::launchyShow()
 {
+	// Not Implemented
 }
 
 void LaunchySharpPluginWrapper::launchyHide()
 {
+	// Not Implemented
 }
 
 void LaunchySharpPluginWrapper::setPluginForTesting(LaunchySharp::IPlugin^ plugin)

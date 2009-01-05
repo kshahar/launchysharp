@@ -21,7 +21,7 @@ namespace LaunchySharpCpp
 		virtual void setID(unsigned int id);
 		
 		// Returns the current owner id of the query.
-		virtual void getID();
+		virtual unsigned int getID();
 		
 		// Get the text of the query segment.
 		virtual System::String^ getText();
