@@ -15,7 +15,7 @@ namespace LaunchySharpCpp
 	return result;
 }
 
-LaunchySharpCpp::CatItem^ CatItemConverter::fromLaunchy(::CatItem& catItem)
+LaunchySharpCpp::CatItem^ CatItemConverter::fromLaunchy(const ::CatItem& catItem)
 {
 	LaunchySharpCpp::CatItem^ result = gcnew LaunchySharpCpp::CatItem(
 		QStringToString(catItem.fullPath),

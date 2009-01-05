@@ -9,6 +9,6 @@ namespace LaunchySharpCpp
 	{
 	public:
 		::CatItem toLaunchy(LaunchySharp::ICatItem^ catItem);
-		LaunchySharpCpp::CatItem^ fromLaunchy(::CatItem& catItem);
+		LaunchySharpCpp::CatItem^ fromLaunchy(const ::CatItem& catItem);
 	};
 };

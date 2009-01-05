@@ -2,13 +2,16 @@
 #include "LaunchySharpCpp/LaunchySharpPluginWrapper.h"
 #include "LaunchySharpCpp/InputData.h"
 #include "LaunchySharpCpp/StringConversions.h"
+#include "LaunchySharpCpp/InputDataListConverter.h"
 
 using namespace System::Collections::Generic;
 
 namespace LaunchySharpCpp {
 
-LaunchySharpPluginWrapper::LaunchySharpPluginWrapper(LaunchySharp::IPlugin^ plugin)
-: m_plugin(plugin)
+LaunchySharpPluginWrapper::LaunchySharpPluginWrapper(
+	LaunchySharp::IPlugin^ plugin, InputDataListConverter& inputDataListConverter)
+: m_plugin(plugin), 
+  m_inputDataListConverter(inputDataListConverter)
 {
 }
 
@@ -30,7 +33,9 @@ void LaunchySharpPluginWrapper::getName(QString* pName)
 
 void LaunchySharpPluginWrapper::getLabels(QList<::InputData>* pInputDataList)
 {
-	m_plugin->getLabels(nullptr);
+	List<LaunchySharp::IInputData^>^ inputDataList =
+		m_inputDataListConverter.fromLaunchy(*pInputDataList);
+	m_plugin->getLabels(inputDataList);
 }
 
 void LaunchySharpPluginWrapper::getResults(

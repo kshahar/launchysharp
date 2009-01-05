@@ -308,6 +308,14 @@
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\InputDataFactory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\InputDataListConverter.h"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapper.h"
 					>
 				</File>
@@ -333,6 +341,14 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\InputData.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\InputDataFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\InputDataListConverter.cpp"
 					>
 				</File>
 				<File

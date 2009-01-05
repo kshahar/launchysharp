@@ -5,10 +5,13 @@
 
 namespace LaunchySharpCpp
 {
+	class InputDataListConverter;
+
 	class LaunchySharpPluginWrapper: public Launchy::Plugin
 	{
 	public:
-		LaunchySharpPluginWrapper(LaunchySharp::IPlugin^ plugin);
+		LaunchySharpPluginWrapper(LaunchySharp::IPlugin^ plugin, 
+			InputDataListConverter& inputDataListConverter);
 
 		virtual void init();
 
@@ -39,5 +42,6 @@ namespace LaunchySharpCpp
 
 	private:
 		msclr::auto_gcroot< LaunchySharp::IPlugin^ > m_plugin;
+		InputDataListConverter& m_inputDataListConverter;
 	};
 }

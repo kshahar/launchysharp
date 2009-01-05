@@ -63,7 +63,7 @@ void Plugin::init()
 	}
 	g_pluginInstance = this;
 
-	sharpWrapper = new LaunchySharpCpp::LaunchySharpPluginWrapper(
+	/*sharpWrapper = new LaunchySharpCpp::LaunchySharpPluginWrapper(
 		gcnew LaunchySharpCpp::TestPlugin());
 	launchyWrapper = new LaunchySharpPlugin::LaunchyPluginWrapper(
 		*sharpWrapper);
@@ -71,7 +71,7 @@ void Plugin::init()
 	sharpWrapper->getID(&pluginInfo.id);
 	sharpWrapper->getName(&pluginInfo.name);
 	pluginInfo.path = "";
-	pluginInfo.obj = launchyWrapper;
+	pluginInfo.obj = launchyWrapper;*/
 }
 
 void Plugin::getID(uint* pId)
