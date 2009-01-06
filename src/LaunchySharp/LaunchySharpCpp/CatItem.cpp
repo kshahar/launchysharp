@@ -93,7 +93,7 @@ int CatItem::getUsage()
 }
 
 /// The plugin id of the creator of this CatItem (0 for Launchy itself).
-int CatItem:: getID()
+unsigned int CatItem:: getID()
 {
 	return m_id;
 }

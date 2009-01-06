@@ -34,7 +34,7 @@ namespace LaunchySharpCpp
 		virtual int getUsage();
 		
 		/// The plugin id of the creator of this CatItem (0 for Launchy itself).
-		virtual int getID();
+		virtual unsigned int getID();
 
 	private:
 		System::String^ m_fullPath;
@@ -42,6 +42,6 @@ namespace LaunchySharpCpp
 		System::String^ m_lowName;
 		System::String^ m_iconPath;
 		int m_usage;
-		int m_id;
+		unsigned int m_id;
 	};
 }

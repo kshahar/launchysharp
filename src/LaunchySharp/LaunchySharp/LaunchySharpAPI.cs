@@ -5,7 +5,7 @@ namespace LaunchySharp
 	public interface IPlugin
 	{
 		void init(IPluginHost pluginHost);
-		int getID();
+		uint getID();
 		string getName();
 		void getLabels(List<IInputData> inputDataList);
 		void getResults(List<IInputData> inputDataList, List<ICatItem> resultsList);
@@ -41,7 +41,7 @@ namespace LaunchySharp
 		int getUsage();
 		
 		/// The plugin id of the creator of this CatItem (0 for Launchy itself).
-		int getID();
+		uint getID();
 	}
 	
 	public interface ICatItemFactory
@@ -78,11 +78,5 @@ namespace LaunchySharp
 		
 		// Change the best catalog match for this segment.
 		void setTopResult(ICatItem catItem);
-	}
-	
-	public interface ICatItemCreator
-	{
-		ICatItem createCatItem(string fullPath, string shortName, 
-			uint id, string iconPath);
 	}
 }

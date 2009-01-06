@@ -223,6 +223,32 @@
 			<Filter
 				Name="Source Files C#"
 				>
+				<File
+					RelativePath=".\LaunchySharp\LaunchySharpAPI.cs"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Building LaunchySharpAPI"
+							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="csc"
+							Outputs="$(OutDir)\LaunchySharpAPI.dll"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Building LaunchySharpAPI"
+							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="csc"
+							Outputs="$(OutDir)\LaunchySharpAPI.dll"
+						/>
+					</FileConfiguration>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter

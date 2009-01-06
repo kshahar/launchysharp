@@ -15,7 +15,7 @@ namespace LaunchySharpCpp
 		virtual void init(LaunchySharp::IPluginHost^ pluginHost)
 		{
 		}
-		virtual int getID()
+		virtual unsigned int getID()
 		{
 			return 0;
 		}
@@ -102,13 +102,13 @@ namespace testing
 		void testGetID()
 		{
 			unsigned int id;
-			System::Int32 idToExpect = 100;
+			System::UInt32 idToExpect = 100;
 			m_pluginMock->Expect("getID");
 			m_pluginMock->SetReturnValue("getID", idToExpect);
 			m_pWrapper->getID(&id);
 			m_pluginMock->Verify();
 
-			Assert::AreEqual( idToExpect, System::Int32(id) );			
+			Assert::AreEqual( idToExpect, System::UInt32(id) );			
 		}
 
 		[Test]

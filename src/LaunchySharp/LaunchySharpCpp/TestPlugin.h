@@ -9,7 +9,7 @@ namespace LaunchySharpCpp
 		{
 		}
 
-		virtual int getID()
+		virtual unsigned int getID()
 		{
 			return 8844233;
 		}
