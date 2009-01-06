@@ -304,6 +304,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\CatItemFactory.h"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\InputData.h"
 					>
 				</File>
@@ -317,6 +321,14 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapper.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapperFactory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\PluginHost.h"
 					>
 				</File>
 				<File
@@ -340,6 +352,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\CatItemFactory.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\InputData.cpp"
 					>
 				</File>
@@ -353,6 +369,14 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapper.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapperFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\PluginHost.cpp"
 					>
 				</File>
 				<File

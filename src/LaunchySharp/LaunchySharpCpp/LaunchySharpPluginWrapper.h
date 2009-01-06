@@ -2,15 +2,20 @@
 
 #include <Launchy/Plugin.h>
 #include <msclr/auto_gcroot.h>
+#include <gcroot.h>
 
 namespace LaunchySharpCpp
 {
+	class CatItemConverter;
 	class InputDataListConverter;
 
 	class LaunchySharpPluginWrapper: public Launchy::Plugin
 	{
 	public:
-		LaunchySharpPluginWrapper(LaunchySharp::IPlugin^ plugin, 
+		LaunchySharpPluginWrapper(
+			LaunchySharp::IPlugin^ plugin,
+			LaunchySharp::IPluginHost^ pluginHost,
+			CatItemConverter& catItemConverter,
 			InputDataListConverter& inputDataListConverter);
 
 		virtual void init();
@@ -42,6 +47,8 @@ namespace LaunchySharpCpp
 
 	private:
 		msclr::auto_gcroot< LaunchySharp::IPlugin^ > m_plugin;
+		gcroot< LaunchySharp::IPluginHost^ > m_pluginHost;
+		CatItemConverter& m_catItemConverter;
 		InputDataListConverter& m_inputDataListConverter;
 	};
 }

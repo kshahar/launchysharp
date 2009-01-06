@@ -1,7 +1,7 @@
 #include "Precompiled.h"
 #include "LaunchySharpCpp/LaunchySharpPluginWrapper.h"
-#include "LaunchySharpCpp/InputData.h"
 #include "LaunchySharpCpp/StringConversions.h"
+#include "LaunchySharpCpp/CatItemConverter.h"
 #include "LaunchySharpCpp/InputDataListConverter.h"
 
 using namespace System::Collections::Generic;
@@ -9,15 +9,20 @@ using namespace System::Collections::Generic;
 namespace LaunchySharpCpp {
 
 LaunchySharpPluginWrapper::LaunchySharpPluginWrapper(
-	LaunchySharp::IPlugin^ plugin, InputDataListConverter& inputDataListConverter)
+	LaunchySharp::IPlugin^ plugin, 
+	LaunchySharp::IPluginHost^ pluginHost,
+	CatItemConverter& catItemConverter,
+	InputDataListConverter& inputDataListConverter)
 : m_plugin(plugin), 
+  m_pluginHost(pluginHost),
+  m_catItemConverter(catItemConverter),
   m_inputDataListConverter(inputDataListConverter)
 {
 }
 
 void LaunchySharpPluginWrapper::init()
 {
-	m_plugin->init(nullptr);
+	m_plugin->init(m_pluginHost);
 }
 
 void LaunchySharpPluginWrapper::getID(uint* pId)
@@ -41,18 +46,39 @@ void LaunchySharpPluginWrapper::getLabels(QList<::InputData>* pInputDataList)
 void LaunchySharpPluginWrapper::getResults(
 	QList<::InputData>* pInputDataList, QList<::CatItem>* pResultsList)
 {
-	m_plugin->getResults(nullptr, nullptr);
+	List<LaunchySharp::IInputData^>^ inputDataList =
+		m_inputDataListConverter.fromLaunchy(*pInputDataList);
+	List<LaunchySharp::ICatItem^>^ resultsList = 
+		gcnew List<LaunchySharp::ICatItem^>;
+	m_plugin->getResults(inputDataList, resultsList);
+
+	for each (LaunchySharp::ICatItem^ catItem in resultsList) {
+		pResultsList->append(
+			m_catItemConverter.toLaunchy(catItem));
+	}
 }
 
 void LaunchySharpPluginWrapper::getCatalog(QList<::CatItem>* pCatalogItems)
 {
-	m_plugin->getCatalog(nullptr);
+	List<LaunchySharp::ICatItem^>^ catalogItems = 
+		gcnew List<LaunchySharp::ICatItem^>;
+	m_plugin->getCatalog(catalogItems);
+
+	// TODO: Code duplication from above
+	for each (LaunchySharp::ICatItem^ catItem in catalogItems) {
+		pCatalogItems->append(
+			m_catItemConverter.toLaunchy(catItem));
+	}
 }
 
 void LaunchySharpPluginWrapper::launchItem(
 	QList<::InputData>* pInputDataList, ::CatItem* pItemToLaunch)
 {
-	m_plugin->launchItem(nullptr, nullptr);
+	LaunchySharpCpp::CatItem^ itemToLaunch =
+		m_catItemConverter.fromLaunchy(*pItemToLaunch);
+	List<LaunchySharp::IInputData^>^ inputDataList =
+		m_inputDataListConverter.fromLaunchy(*pInputDataList);
+	m_plugin->launchItem(inputDataList, itemToLaunch);
 }
 
 bool LaunchySharpPluginWrapper::hasDialog()

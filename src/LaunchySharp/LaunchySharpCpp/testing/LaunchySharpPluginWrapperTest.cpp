@@ -1,8 +1,7 @@
 #include "Precompiled.h"
 #include "LaunchySharpCpp/LaunchySharpPluginWrapper.h"
+#include "LaunchySharpCpp/LaunchySharpPluginWrapperFactory.h"
 #include "LaunchySharpCpp/StringConversions.h"
-#include "LaunchySharpCpp/InputDataFactory.h"
-#include "LaunchySharpCpp/InputDataListConverter.h"
 
 using namespace NUnit::Framework;
 using namespace NUnit::Mocks;
@@ -70,8 +69,7 @@ namespace testing
 	private:
 		DynamicMock^ m_pluginMock;
 		LaunchySharpCpp::LaunchySharpPluginWrapper* m_pWrapper;
-		LaunchySharpCpp::InputDataFactory* m_pInputDataFactory;
-		LaunchySharpCpp::InputDataListConverter* m_pInputDataListConverter;
+		LaunchySharpCpp::LaunchySharpPluginWrapperFactory* m_pPluginWrapperFactory;
 
 	public:
 		[SetUp]
@@ -79,19 +77,17 @@ namespace testing
 		{
 			m_pluginMock = 
 				gcnew DynamicMock(LaunchySharp::IPlugin::typeid);
-			m_pInputDataFactory = new LaunchySharpCpp::InputDataFactory();
-			m_pInputDataListConverter = 
-				new LaunchySharpCpp::InputDataListConverter( *m_pInputDataFactory );
-			m_pWrapper = new LaunchySharpCpp::LaunchySharpPluginWrapper(
-				(LaunchySharp::IPlugin^)m_pluginMock->MockInstance,
-				*m_pInputDataListConverter);
+
+			m_pPluginWrapperFactory = 
+				new LaunchySharpCpp::LaunchySharpPluginWrapperFactory();
+
+			m_pWrapper = m_pPluginWrapperFactory->create(
+				(LaunchySharp::IPlugin^)m_pluginMock->MockInstance);
 		}
 		[TearDown]
 		void tearDown()
 		{
-			delete m_pWrapper;
-			delete m_pInputDataListConverter;
-			delete m_pInputDataFactory;
+			delete m_pPluginWrapperFactory;
 		}
 
 		[Test]
