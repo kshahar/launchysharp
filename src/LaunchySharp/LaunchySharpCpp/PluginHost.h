@@ -6,9 +6,15 @@ namespace LaunchySharpCpp
 	{
 	public:
 		PluginHost();
+
 		virtual LaunchySharp::ICatItemFactory^ catItemFactory();
+
+		virtual LaunchySharp::ILaunchyPaths^ launchyPaths();
+
+		virtual unsigned int hash(System::String^ str);
 	private:
 		LaunchySharp::ICatItemFactory^ m_catItemFactory;
+		LaunchySharp::ILaunchyPaths^ m_launchyPaths;
 	};
 
 }

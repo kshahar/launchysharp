@@ -232,7 +232,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Building LaunchySharpAPI"
-							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;"
+							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;copy /y &quot;$(OutDir)\%OutputName%.dll&quot; &quot;C:\Program Files\Launchy&quot;"
 							AdditionalDependencies="csc"
 							Outputs="$(OutDir)\LaunchySharpAPI.dll"
 						/>
@@ -243,7 +243,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Building LaunchySharpAPI"
-							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;"
+							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;copy /y &quot;$(OutDir)\%OutputName%.dll&quot; &quot;C:\Program Files\Launchy&quot;"
 							AdditionalDependencies="csc"
 							Outputs="$(OutDir)\LaunchySharpAPI.dll"
 						/>
@@ -346,6 +346,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\LaunchyPaths.h"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapper.h"
 					>
 				</File>
@@ -391,6 +395,10 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\InputDataListConverter.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\LaunchyPaths.cpp"
 					>
 				</File>
 				<File

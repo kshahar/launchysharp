@@ -21,8 +21,13 @@ namespace LaunchySharp
 	public interface IPluginHost
 	{
 		ICatItemFactory catItemFactory();
+		
+		ILaunchyPaths launchyPaths();
+		
+		/// Computes a value of a string using the implmentation as Launchy.
+		uint hash(string str);
 	}
-
+	
 	public interface ICatItem
 	{	
 		/// The full path of the file to execute
@@ -42,12 +47,6 @@ namespace LaunchySharp
 		
 		/// The plugin id of the creator of this CatItem (0 for Launchy itself).
 		uint getID();
-	}
-	
-	public interface ICatItemFactory
-	{
-		ICatItem createCatItem(string fullPath, string shortName, int id, 
-			string iconPath);
 	}
 	
 	public interface IInputData
@@ -78,5 +77,23 @@ namespace LaunchySharp
 		
 		// Change the best catalog match for this segment.
 		void setTopResult(ICatItem catItem);
+	}
+	
+	public interface ICatItemFactory
+	{
+		ICatItem createCatItem(string fullPath, string shortName, int id, 
+			string iconPath);
+	}
+	
+	public interface ILaunchyPaths
+	{
+		/// Usually C:\Program Files\Launchy
+		string getLaunchyPath();
+		
+		/// Usually C:\Program Files\Launchy\plugins\icons
+		string getIconsPath();
+		
+		/// Usually %AppData%\Launchy\ 
+		string getConfigPath();
 	}
 }
