@@ -58,6 +58,7 @@ void PluginManager::addPlugin(Launchy::Plugin* pPlugin)
 
 	// Create PluginInfo so we can tell launchy about the plugin
 	PluginInfo launchyPluginInfo;
+	pPluginWrapper->msg(MSG_INIT, NULL, NULL);
 	pPluginWrapper->msg(MSG_GET_ID, &launchyPluginInfo.id, NULL);
 	pPluginWrapper->msg(MSG_GET_NAME, &launchyPluginInfo.name, NULL);
 	launchyPluginInfo.path = "";

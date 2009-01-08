@@ -519,10 +519,6 @@
 				Name="Source Files"
 				>
 				<File
-					RelativePath="..\LaunchySharpTester\blat.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\LaunchySharpPlugin\LaunchyPluginWrapper.cpp"
 					>
 				</File>
