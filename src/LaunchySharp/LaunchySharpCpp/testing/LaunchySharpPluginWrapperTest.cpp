@@ -1,4 +1,6 @@
 #include "Precompiled.h"
+#ifdef LaunchySharp_TESTING
+
 #include "LaunchySharpCpp/LaunchySharpPluginWrapper.h"
 #include "LaunchySharpCpp/LaunchySharpPluginWrapperFactory.h"
 #include "LaunchySharpCpp/StringConversions.h"
@@ -147,3 +149,5 @@ namespace testing
 	};
 }
 }
+
+#endif

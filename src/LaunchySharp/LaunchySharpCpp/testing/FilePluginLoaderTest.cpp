@@ -1,4 +1,6 @@
 #include "Precompiled.h"
+#ifdef LaunchySharp_TESTING
+
 #include "LaunchySharpCpp/FilePluginLoader.h"
 #include "LaunchySharpCpp/PluginFactory.h"
 #include "LaunchySharpCpp/testing/EmptyLaunchyPlugin.h"
@@ -91,3 +93,4 @@ namespace testing
 
 }
 
+#endif
