@@ -33,7 +33,7 @@ LaunchySharpPluginWrapperFactory::~LaunchySharpPluginWrapperFactory()
 {
 }
 
-LaunchySharpPluginWrapper* LaunchySharpPluginWrapperFactory::create(
+Launchy::Plugin* LaunchySharpPluginWrapperFactory::create(
 	LaunchySharp::IPlugin^ plugin)
 {
 	return new LaunchySharpPluginWrapper(plugin,

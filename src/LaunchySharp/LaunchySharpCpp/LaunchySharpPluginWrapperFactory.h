@@ -1,17 +1,21 @@
 #pragma once
 
 #include <memory>
+#include "LaunchySharpCpp/PluginFactory.h"
+
+namespace Launchy {
+	class Plugin;
+}
 
 namespace LaunchySharpCpp
 {
-	class LaunchySharpPluginWrapper;
-	class LaunchySharpPluginWrapperFactory {
+	class LaunchySharpPluginWrapperFactory: public PluginFactory {
 	public:
 		LaunchySharpPluginWrapperFactory();
 		~LaunchySharpPluginWrapperFactory();
 
 		//! Ownership of memory is passed to the caller
-		LaunchySharpPluginWrapper* create(LaunchySharp::IPlugin^ plugin);
+		virtual Launchy::Plugin* create(LaunchySharp::IPlugin^ plugin);
 	private:
 		// Disable copy
 		LaunchySharpPluginWrapperFactory(const LaunchySharpPluginWrapperFactory&);

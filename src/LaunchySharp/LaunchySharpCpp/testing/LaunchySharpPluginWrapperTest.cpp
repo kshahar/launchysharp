@@ -2,53 +2,17 @@
 #include "LaunchySharpCpp/LaunchySharpPluginWrapper.h"
 #include "LaunchySharpCpp/LaunchySharpPluginWrapperFactory.h"
 #include "LaunchySharpCpp/StringConversions.h"
+#include "LaunchySharpCpp/testing/EmptyLaunchySharpPlugin.h"
 
 using namespace NUnit::Framework;
 using namespace NUnit::Mocks;
 using namespace System::Collections::Generic;
 
-namespace LaunchySharpCpp 
-{
-	ref class EmptyPlugin: LaunchySharp::IPlugin
-	{
-	public:
-		virtual void init(LaunchySharp::IPluginHost^ pluginHost)
-		{
-		}
-		virtual unsigned int getID()
-		{
-			return 0;
-		}
-		virtual System::String^ getName()
-		{
-			return gcnew System::String(L"");
-		}
-		virtual void getLabels(
-			List<LaunchySharp::IInputData^>^ inputDataList)
-		{
-		}
-		virtual void getResults(
-			List<LaunchySharp::IInputData^>^ inputDataList, 
-			List<LaunchySharp::ICatItem^>^ resultsList)
-		{	
-		}
-		virtual void getCatalog(
-			List<LaunchySharp::ICatItem^>^ catalogItems)
-		{	
-		}
-		virtual void launchItem(
-			List<LaunchySharp::IInputData^>^ inputDataList, 
-			LaunchySharp::ICatItem^ item)
-		{	
-		}
-	};
-}
-
 namespace LaunchySharpCpp
 {
 namespace testing 
 {
-	ref class PluginWithGetLabels: LaunchySharpCpp::EmptyPlugin
+	ref class PluginWithGetLabels: EmptyLaunchySharpPlugin
 	{
 	public:
 		unsigned int labelId;
@@ -81,8 +45,11 @@ namespace testing
 			m_pPluginWrapperFactory = 
 				new LaunchySharpCpp::LaunchySharpPluginWrapperFactory();
 
-			m_pWrapper = m_pPluginWrapperFactory->create(
+			Launchy::Plugin* wrapper = m_pPluginWrapperFactory->create(
 				(LaunchySharp::IPlugin^)m_pluginMock->MockInstance);
+			m_pWrapper = dynamic_cast<LaunchySharpPluginWrapper*>(wrapper);
+
+			Assert::IsTrue(m_pWrapper != NULL);
 		}
 		[TearDown]
 		void tearDown()

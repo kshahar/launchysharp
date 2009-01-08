@@ -1,13 +1,10 @@
 #include "Precompiled.h"
 #include "LaunchySharpPlugin/Plugin.h"
-#include <QTimerEvent>
-#include <QEvent>
-#include <QChildEvent>
+#include <QtCore/QCoreApplication>
 #include <QtPlugin>
 
-#include <LaunchySharpCpp/TestPlugin.h>
-#include <LaunchySharpCpp/LaunchySharpPluginWrapper.h>
-#include <LaunchySharpPlugin/LaunchyPluginWrapper.h>
+#include "LaunchySharpPlugin/PluginManager.h"
+#include "LaunchySharpPlugin/PluginManagerFactory.h"
 
 namespace LaunchySharpPlugin
 {
@@ -16,10 +13,16 @@ Plugin* g_pluginInstance = NULL;
 const char* CONFIG_pluginName = "Launchy#";
 unsigned int CONFIG_pluginHash = qHash(CONFIG_pluginName);
 
-PluginInfo pluginInfo;
-LaunchySharpCpp::LaunchySharpPluginWrapper* sharpWrapper;
-LaunchySharpPlugin::LaunchyPluginWrapper* launchyWrapper;
+struct Plugin::PrivateImpl
+{
+	PluginManagerFactory pluginManagerFactory;
+	std::auto_ptr<PluginManager> pPluginManager;
 
+	PrivateImpl():
+	pPluginManager(pluginManagerFactory.createPluginManager())
+	{
+	}
+};
 
 Plugin::Plugin()
 {
@@ -45,7 +48,7 @@ int Plugin::msg(int msgId, void* wParam, void* lParam)
 		loadPlugins((QList<PluginInfo>*)wParam);
 	}
 	else if (msgId == MSG_UNLOAD_PLUGIN) {
-		//m_pImpl->unloadPlugin((uint)wParam);
+		unloadPlugin((uint)wParam);
 	}
 	else if (msgId == MSG_HAS_DIALOG) {
 		// This is the only case we return false
@@ -63,15 +66,13 @@ void Plugin::init()
 	}
 	g_pluginInstance = this;
 
-	/*sharpWrapper = new LaunchySharpCpp::LaunchySharpPluginWrapper(
-		gcnew LaunchySharpCpp::TestPlugin());
-	launchyWrapper = new LaunchySharpPlugin::LaunchyPluginWrapper(
-		*sharpWrapper);
+	m_pImpl.reset(new PrivateImpl);
 
-	sharpWrapper->getID(&pluginInfo.id);
-	sharpWrapper->getName(&pluginInfo.name);
-	pluginInfo.path = "";
-	pluginInfo.obj = launchyWrapper;*/
+	const QDir pluginsDir = 
+		QCoreApplication::applicationDirPath() + 
+		QDir::separator() +
+		"plugins";
+	m_pImpl->pPluginManager->loadPluginsFromDirectory(pluginsDir);
 }
 
 void Plugin::getID(uint* pId)
@@ -86,7 +87,12 @@ void Plugin::getName(QString* pName)
 
 void Plugin::loadPlugins(QList<PluginInfo>* additionalPlugins)
 {
-	additionalPlugins->append(pluginInfo);
+	m_pImpl->pPluginManager->sendPluginsToLaunchy(additionalPlugins);
+}
+
+void Plugin::unloadPlugin(uint id)
+{
+	m_pImpl->pPluginManager->unloadPlugin(id);
 }
 
 }

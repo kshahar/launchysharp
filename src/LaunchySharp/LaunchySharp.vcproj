@@ -123,7 +123,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;"
-				PreprocessorDefinitions="WIN32;NDEBUG"
+				PreprocessorDefinitions="WIN32;NDEBUG;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_PLUGIN;QT_NO_DEBUG;QT_SHARED"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="Precompiled.h"
@@ -141,9 +141,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="QtCore4.lib QtGui4.lib $(NOINHERIT)"
+				AdditionalDependencies="QtCore4.lib QtGui4.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib $(NOINHERIT)"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="&quot;$(QTDIR)\lib&quot;"
+				GenerateManifest="false"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
@@ -180,14 +181,6 @@
 			AssemblyName="System, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
-			RelativePath="System.Data.dll"
-			AssemblyName="System.Data, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=x86"
-		/>
-		<AssemblyReference
-			RelativePath="System.XML.dll"
-			AssemblyName="System.Xml, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
-		/>
-		<AssemblyReference
 			RelativePath="c:\Program Files\NUnit 2.4.8\bin\nunit.framework.dll"
 			AssemblyName="nunit.framework, Version=2.4.8.0, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
 		/>
@@ -205,22 +198,6 @@
 			Name="LaunchySharp"
 			>
 			<Filter
-				Name="Header Files"
-				>
-				<File
-					RelativePath=".\LaunchySharp\PluginLoader.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Source Files"
-				>
-				<File
-					RelativePath=".\LaunchySharp\PluginLoader.cpp"
-					>
-				</File>
-			</Filter>
-			<Filter
 				Name="Source Files C#"
 				>
 				<File
@@ -232,7 +209,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Building LaunchySharpAPI"
-							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;copy /y &quot;$(OutDir)\%OutputName%.dll&quot; &quot;C:\Program Files\Launchy&quot;"
+							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;copy /y &quot;$(OutDir)\%OutputName%.dll&quot; &quot;C:\Program Files\Launchy&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="csc"
 							Outputs="$(OutDir)\LaunchySharpAPI.dll"
 						/>
@@ -243,7 +220,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Building LaunchySharpAPI"
-							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;copy /y &quot;$(OutDir)\%OutputName%.dll&quot; &quot;C:\Program Files\Launchy&quot;"
+							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;copy /y &quot;$(OutDir)\%OutputName%.dll&quot; &quot;C:\Program Files\Launchy&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="csc"
 							Outputs="$(OutDir)\LaunchySharpAPI.dll"
 						/>
@@ -334,6 +311,14 @@
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\FilePluginLoader.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\IFilePluginLoader.h"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\InputData.h"
 					>
 				</File>
@@ -343,6 +328,10 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\InputDataListConverter.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\IPluginLoader.h"
 					>
 				</File>
 				<File
@@ -358,7 +347,15 @@
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\PluginFactory.h"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\PluginHost.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\PluginLoader.h"
 					>
 				</File>
 				<File
@@ -383,6 +380,10 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\CatItemFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\FilePluginLoader.cpp"
 					>
 				</File>
 				<File
@@ -414,6 +415,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\PluginLoader.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\StringConversions.cpp"
 					>
 				</File>
@@ -421,6 +426,18 @@
 			<Filter
 				Name="Tests"
 				>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\EmptyLaunchyPlugin.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\EmptyLaunchySharpPlugin.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\FilePluginLoaderTest.cpp"
+					>
+				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\testing\InputDataTest.cpp"
 					>
@@ -489,16 +506,36 @@
 						/>
 					</FileConfiguration>
 				</File>
+				<File
+					RelativePath=".\LaunchySharpPlugin\PluginManager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpPlugin\PluginManagerFactory.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Source Files"
 				>
+				<File
+					RelativePath="..\LaunchySharpTester\blat.cpp"
+					>
+				</File>
 				<File
 					RelativePath=".\LaunchySharpPlugin\LaunchyPluginWrapper.cpp"
 					>
 				</File>
 				<File
 					RelativePath=".\LaunchySharpPlugin\Plugin.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpPlugin\PluginManager.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpPlugin\PluginManagerFactory.cpp"
 					>
 				</File>
 			</Filter>

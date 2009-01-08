@@ -1,14 +1,15 @@
 #include "Precompiled.h"
-#include <LaunchySharp/PluginLoader.h>
+#include "LaunchySharpCpp/PluginLoader.h"
 
 using namespace System;
 using namespace System::Reflection;
 
-namespace LaunchySharp
+namespace LaunchySharpCpp
 {
-IPlugin^ PluginLoader::loadPlugin(System::String^ fileName)
+
+LaunchySharp::IPlugin^ PluginLoader::loadPlugin(System::String^ fileName)
 {
-	IPlugin^ plugin = nullptr;
+	LaunchySharp::IPlugin^ plugin = nullptr;
 	try 
 	{
 		Assembly^ pluginAssembly = Assembly::LoadFrom(fileName);
@@ -21,7 +22,7 @@ IPlugin^ PluginLoader::loadPlugin(System::String^ fileName)
 	return plugin;
 }
 
-IPlugin^ PluginLoader::loadPluginFromTypes(cli::array<System::Type^>^ types)
+LaunchySharp::IPlugin^ PluginLoader::loadPluginFromTypes(cli::array<System::Type^>^ types)
 {
 	for each ( Type^ type in types )
 	{
@@ -47,9 +48,9 @@ bool PluginLoader::isLaunchyPluginType(System::Type^ type)
 		type->GetInterface("LaunchySharp.IPlugin") != nullptr;
 }
 
-IPlugin^ PluginLoader::loadPluginFromType(System::Type^ type)
+LaunchySharp::IPlugin^ PluginLoader::loadPluginFromType(System::Type^ type)
 {
-	return (IPlugin^)Activator::CreateInstance(type);
+	return (LaunchySharp::IPlugin^)Activator::CreateInstance(type);
 }
 
 }

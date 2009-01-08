@@ -185,6 +185,10 @@
 			RelativePath="..\debug\LaunchySharpAPI.dll"
 			AssemblyName="LaunchySharpAPI, Version=0.0.0.0, processorArchitecture=MSIL"
 		/>
+		<AssemblyReference
+			RelativePath="System.Windows.Forms.dll"
+			AssemblyName="System.Windows.Forms, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
+		/>
 	</References>
 	<Files>
 		<Filter

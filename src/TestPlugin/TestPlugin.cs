@@ -1,26 +1,56 @@
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 namespace LaunchySharp
 {
 	public class TestPlugin: IPlugin
 	{
-		public void init()
+		private LaunchySharp.IPluginHost m_pluginHost = null;
+		private LaunchySharp.ICatItemFactory m_catItemFactory = null;
+		private uint m_id = -1;
+		private string m_name = "TestPlugin#";
+	
+		public void init(LaunchySharp.IPluginHost pluginHost)
 		{
+			m_pluginHost = pluginHost;
+			if (m_pluginHost != null) {
+				m_catItemFactory = m_pluginHost.catItemFactory();
+			}
+			//m_id = m_pluginHost.hash(m_name);
+			m_id = 888888;
 		}
-		public int getID()
+		
+		public uint getID()
 		{
-			return 8844233;
+			return m_id;
+			//return 
 		}
+		
 		public string getName()
 		{
-			return "TestPlugin";
+			return m_name;
 		}
-		public string getIcon()
-		{
-			return "";
-		}
+		
 		public void getLabels(List<IInputData> inputDataList)
 		{
+		}
+		
+		public void getResults(List<IInputData> inputDataList, List<ICatItem> resultsList)
+		{
+			string text = inputDataList[0].getText();
+			resultsList.Add( m_catItemFactory.createCatItem( 
+				text, "Test: " + text, (int)getID(), getName()) );
+		}
+		
+		public void getCatalog(List<ICatItem> catalogItems)
+		{
+		}
+		
+		public void launchItem(List<IInputData> inputDataList, ICatItem item)
+		{
+			ICatItem catItem = 
+				inputDataList[inputDataList.Count-1].getTopResult();
+			MessageBox.Show("I was asked to launch: " + item.getFullPath());
 		}
 	}
 }
