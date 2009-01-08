@@ -6,7 +6,7 @@ namespace LaunchySharpCpp
 	{
 	public:
 		virtual LaunchySharp::ICatItem^ createCatItem(System::String^ fullPath, 
-			System::String^ shortName, int id, System::String^ iconPath);
+			System::String^ shortName, unsigned int id, System::String^ iconPath);
 	};
 
 }

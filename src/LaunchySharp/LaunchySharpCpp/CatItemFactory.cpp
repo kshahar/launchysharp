@@ -7,7 +7,7 @@ namespace LaunchySharpCpp
 
 LaunchySharp::ICatItem^ CatItemFactory::createCatItem(
 	System::String^ fullPath, System::String^ shortName, 
-	int id, System::String^ iconPath)
+	unsigned int id, System::String^ iconPath)
 {
 	return gcnew LaunchySharpCpp::CatItem( fullPath, shortName, id, iconPath );
 }

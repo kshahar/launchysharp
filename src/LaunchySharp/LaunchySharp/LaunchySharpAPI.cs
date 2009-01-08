@@ -81,7 +81,7 @@ namespace LaunchySharp
 	
 	public interface ICatItemFactory
 	{
-		ICatItem createCatItem(string fullPath, string shortName, int id, 
+		ICatItem createCatItem(string fullPath, string shortName, uint id, 
 			string iconPath);
 	}
 	
