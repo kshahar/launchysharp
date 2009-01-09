@@ -1,5 +1,4 @@
 #include "Precompiled.h"
-#ifdef LaunchySharp_TESTING
 
 #include "LaunchySharpCpp/LaunchySharpPluginWrapper.h"
 #include "LaunchySharpCpp/LaunchySharpPluginWrapperFactory.h"
@@ -149,5 +148,3 @@ namespace testing
 	};
 }
 }
-
-#endif

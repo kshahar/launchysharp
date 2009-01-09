@@ -1,5 +1,4 @@
 #include "Precompiled.h"
-#ifdef LaunchySharp_TESTING
 
 #include "LaunchySharpCpp/InputData.h"
 #include "LaunchySharpCpp/CatItemConverter.h"
@@ -114,5 +113,3 @@ namespace testing
 
 }
 }
-
-#endif
