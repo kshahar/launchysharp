@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual C# Express 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoYPlugin", "GoYPlugin\GoYPlugin.csproj", "{5F64049A-EE5D-4410-97A2-4B4B677F506D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoYPlugin", "GoYPlugin.csproj", "{5F64049A-EE5D-4410-97A2-4B4B677F506D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
