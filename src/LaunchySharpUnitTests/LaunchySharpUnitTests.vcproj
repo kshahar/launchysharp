@@ -19,7 +19,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
 			>
@@ -41,8 +41,11 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG"
 				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="Precompiled.h"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -57,8 +60,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(NoInherit)"
+				AdditionalDependencies="QtCored4.lib QtGuid4.lib $(NOINHERIT)"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="&quot;$(QTDIR)\lib&quot;;&quot;$(OutDir)&quot;"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
@@ -92,7 +96,7 @@
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
 			WholeProgramOptimization="1"
@@ -114,8 +118,11 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG"
 				RuntimeLibrary="2"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="Precompiled.h"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -130,8 +137,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(NoInherit)"
+				AdditionalDependencies="QtCore4.lib QtGui4.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib $(NOINHERIT)"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="&quot;$(QTDIR)\lib&quot;;&quot;$(OutDir)&quot;"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
@@ -162,25 +170,95 @@
 		</Configuration>
 	</Configurations>
 	<References>
+		<AssemblyReference
+			RelativePath="c:\Program Files\NUnit 2.4.8\bin\nunit.framework.dll"
+			AssemblyName="nunit.framework, Version=2.4.8.0, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
+		/>
+		<AssemblyReference
+			RelativePath="c:\Program Files\NUnit 2.4.8\bin\nunit.mocks.dll"
+			AssemblyName="nunit.mocks, Version=2.4.8.0, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
+		/>
+		<AssemblyReference
+			RelativePath="System.dll"
+			AssemblyName="System, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
+		/>
+		<AssemblyReference
+			RelativePath="c:\Program Files\Launchy\Launchy#API.dll"
+			AssemblyName="Launchy#API, Version=1.0.0.0, processorArchitecture=MSIL"
+		/>
 	</References>
 	<Files>
 		<Filter
-			Name="Source Files"
-			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			Name="General"
 			>
+			<Filter
+				Name="Header Files"
+				>
+				<File
+					RelativePath="..\LaunchySharp\General\Precompiled.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Source Files"
+				>
+				<File
+					RelativePath="..\LaunchySharp\General\Precompiled.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="1"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="1"
+						/>
+					</FileConfiguration>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
-			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			Name="LaunchySharpCpp"
 			>
-		</Filter>
-		<Filter
-			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
-			>
+			<Filter
+				Name="Header Files"
+				Filter="h;hpp;hxx;hm;inl;inc;xsd"
+				UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+				>
+				<File
+					RelativePath=".\LaunchySharpCpp\EmptyLaunchyPlugin.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\EmptyLaunchySharpPlugin.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Source Files"
+				Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+				UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+				>
+				<File
+					RelativePath=".\LaunchySharpCpp\FilePluginLoaderTest.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\InputDataTest.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapperTest.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 	</Files>
 	<Globals>
