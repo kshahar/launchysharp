@@ -10,6 +10,7 @@ namespace LaunchySharpCpp
 	result.id = catItem->getID();
 	result.fullPath = StringToQString( catItem->getFullPath() );
 	result.shortName = StringToQString( catItem->getShortName() );
+	result.icon = StringToQString( catItem->getIconPath() );
 	result.lowName = StringToQString( catItem->getLowName() );
 	result.usage = catItem->getUsage();
 	return result;

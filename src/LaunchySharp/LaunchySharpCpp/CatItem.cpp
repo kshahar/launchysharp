@@ -46,7 +46,7 @@ CatItem::CatItem(System::String^ full, System::String^ shortN, unsigned int id, 
 	m_fullPath = full;
 	m_shortName = shortN;
 	m_lowName = shortN->ToLower();
-	m_iconPath = L"";
+	m_iconPath = iconPath;
 	m_usage = 0;
 	m_id = id;
 }
