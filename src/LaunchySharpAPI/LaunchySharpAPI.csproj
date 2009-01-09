@@ -48,8 +48,8 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>set LAUNCHY_DIR=C:\Program Files\Launchy
-taskkill /F /IM Launchy.exe
-xcopy /y $(TargetPath) "%25LAUNCHY_DIR%25"</PostBuildEvent>
+    <PostBuildEvent>taskkill /F /IM Launchy.exe
+xcopy /y $(TargetPath) "$(LAUNCHY_DIR)"
+xcopy /y $(ProjectDir)bin\Release\Launchy#API.xml "$(LAUNCHY_DIR)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
