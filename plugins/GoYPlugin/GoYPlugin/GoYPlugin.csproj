@@ -28,9 +28,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LaunchySharpAPI, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Launchy#API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Launchy\LaunchySharpAPI.dll</HintPath>
+      <HintPath>c:\Program Files\Launchy\Launchy#API.dll</HintPath>
     </Reference>
     <Reference Include="ManagedWinapi, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

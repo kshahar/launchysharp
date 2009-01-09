@@ -29,7 +29,7 @@ namespace GoYPlugin
             m_id = m_pluginHost.hash(m_name);
             m_labelHash = m_pluginHost.hash("go-y#");
             //m_iconPath = m_launchyPaths.getIconsPath() + "\\pygo-y.png";
-            m_iconPath = @"C:\Program Files\Launchy\plugins\icons\pygo-y.png";
+            m_iconPath = @"C:\Program Files\Launchy\plugins\icons\pygo-y.ico";
         }
 
         public uint getID()
@@ -80,11 +80,9 @@ namespace GoYPlugin
                 string windowNameLower = windowName.ToLower();
                 if (windowNameLower.IndexOf(windowNameToMatch) > -1)
                 {
-                    resultsList.Add(
-                        m_catItemFactory.createCatItem(
-                            windowName + ".go-y", windowName,
-                            (int)getID(), getIcon() )
-                    );
+                    ICatItem result = m_catItemFactory.createCatItem(
+                        windowName + ".go-y", windowName, getID(), getIcon());
+                    resultsList.Add(result);
                 }
             }
         }
@@ -92,9 +90,9 @@ namespace GoYPlugin
         public void getCatalog(List<ICatItem> catalogItems)
         {
             catalogItems.Add( m_catItemFactory.createCatItem(
-                "Go.go-y", "Go", (int)getID(), getIcon() ) );
+                "Go.go-y", "Go", getID(), getIcon() ) );
             catalogItems.Add( m_catItemFactory.createCatItem(
-                "Focus.go-y", "Focus", (int)getID(), getIcon() ) );
+                "Focus.go-y", "Focus", getID(), getIcon() ) );
         }
 
         public void launchItem(List<IInputData> inputDataList, ICatItem item)
@@ -106,7 +104,7 @@ namespace GoYPlugin
                 IntPtr hWnd = m_topLevelWindows[catItem.getShortName()];
                 m_windowController.goToWindow(hWnd);
             }
-            catch (Exception e)
+            catch (Exception )
             {
             }
         }
