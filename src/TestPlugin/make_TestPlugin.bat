@@ -1,3 +1,3 @@
 call "D:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat"
-csc /t:library /reference:..\release\LaunchySharpAPI.dll TestPlugin.cs 
+csc /t:library /reference:"C:\Program Files\Launchy\Launchy#API.dll" TestPlugin.cs 
 pause

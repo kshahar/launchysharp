@@ -7,7 +7,7 @@ namespace LaunchySharp
 	{
 		private LaunchySharp.IPluginHost m_pluginHost = null;
 		private LaunchySharp.ICatItemFactory m_catItemFactory = null;
-		private uint m_id = -1;
+		private uint m_id = 0;
 		private string m_name = "TestPlugin#";
 	
 		public void init(LaunchySharp.IPluginHost pluginHost)
@@ -16,14 +16,13 @@ namespace LaunchySharp
 			if (m_pluginHost != null) {
 				m_catItemFactory = m_pluginHost.catItemFactory();
 			}
-			//m_id = m_pluginHost.hash(m_name);
-			m_id = 888888;
+			m_id = m_pluginHost.hash(m_name);
+			//m_id = 888888;
 		}
 		
 		public uint getID()
 		{
 			return m_id;
-			//return 
 		}
 		
 		public string getName()
@@ -37,9 +36,10 @@ namespace LaunchySharp
 		
 		public void getResults(List<IInputData> inputDataList, List<ICatItem> resultsList)
 		{
+			((IInputData)null).getText();
 			string text = inputDataList[0].getText();
 			resultsList.Add( m_catItemFactory.createCatItem( 
-				text, "Test: " + text, (int)getID(), getName()) );
+				text, "Test: " + text, getID(), getName()) );
 		}
 		
 		public void getCatalog(List<ICatItem> catalogItems)
