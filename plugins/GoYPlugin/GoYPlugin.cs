@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LaunchySharp;
+
 namespace GoYPlugin
 {
     public class GoYPlugin : IPlugin
@@ -27,9 +28,8 @@ namespace GoYPlugin
 
             m_name = ("Go-Y#");
             m_id = m_pluginHost.hash(m_name);
-            m_labelHash = m_pluginHost.hash("go-y#");
-            //m_iconPath = m_launchyPaths.getIconsPath() + "\\pygo-y.png";
-            m_iconPath = @"C:\Program Files\Launchy\plugins\icons\pygo-y.ico";
+            m_labelHash = m_id;
+            m_iconPath = m_launchyPaths.getIconsPath() + "\\Go-Y#.ico";
         }
 
         public uint getID()
