@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="LaunchySharpPluginTest"
+	Name="LaunchySharpPlugin"
 	ProjectGUID="{A3241D7C-5192-4EC6-9ECC-1D665C2A2A63}"
 	RootNamespace="LaunchySharp"
 	Keyword="ManagedCProj"
