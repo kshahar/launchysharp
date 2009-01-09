@@ -192,6 +192,10 @@
 			RelativePath="c:\Program Files\NUnit 2.4.8\bin\nunit.mocks.dll"
 			AssemblyName="nunit.mocks, Version=2.4.8.0, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
 		/>
+		<AssemblyReference
+			RelativePath="System.Windows.Forms.dll"
+			AssemblyName="System.Windows.Forms, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
+		/>
 	</References>
 	<Files>
 		<Filter
