@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;;&quot;$(SolutionDir)LaunchySharpUnitTests&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
@@ -118,7 +118,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;;&quot;$(SolutionDir)LaunchySharpUnitTests&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
@@ -232,14 +232,6 @@
 				Filter="h;hpp;hxx;hm;inl;inc;xsd"
 				UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 				>
-				<File
-					RelativePath=".\LaunchySharpCpp\EmptyLaunchyPlugin.h"
-					>
-				</File>
-				<File
-					RelativePath=".\LaunchySharpCpp\EmptyLaunchySharpPlugin.h"
-					>
-				</File>
 			</Filter>
 			<Filter
 				Name="Source Files"
@@ -247,15 +239,79 @@
 				UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 				>
 				<File
-					RelativePath=".\LaunchySharpCpp\FilePluginLoaderTest.cpp"
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\CatItem.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\LaunchySharpCpp\InputDataTest.cpp"
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\CatItemConverter.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapperTest.cpp"
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\CatItemFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\FilePluginLoader.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\InputData.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\InputDataFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\InputDataListConverter.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\LaunchyPaths.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\LaunchySharpPluginWrapper.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\LaunchySharpPluginWrapperFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\PluginHost.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\PluginLoader.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\LaunchySharp\LaunchySharpCpp\StringConversions.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Tests"
+				>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\EmptyLaunchyPlugin.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\EmptyLaunchySharpPlugin.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\FilePluginLoaderTest.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\InputDataTest.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\LaunchySharpPluginWrapperTest.cpp"
 					>
 				</File>
 			</Filter>

@@ -44,7 +44,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;"
-				PreprocessorDefinitions="WIN32;_DEBUG"
+				PreprocessorDefinitions="WIN32;_DEBUG;LAUNCHY_SHARP_BUILD_DLL"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="Precompiled.h"
@@ -123,7 +123,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;"
-				PreprocessorDefinitions="WIN32;NDEBUG;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_PLUGIN;QT_NO_DEBUG;QT_SHARED"
+				PreprocessorDefinitions="WIN32;NDEBUG;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_PLUGIN;QT_NO_DEBUG;QT_SHARED;LAUNCHY_SHARP_BUILD_DLL"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="Precompiled.h"
@@ -386,30 +386,6 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\StringConversions.cpp"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Tests"
-				>
-				<File
-					RelativePath=".\LaunchySharpCpp\testing\EmptyLaunchyPlugin.h"
-					>
-				</File>
-				<File
-					RelativePath=".\LaunchySharpCpp\testing\EmptyLaunchySharpPlugin.h"
-					>
-				</File>
-				<File
-					RelativePath=".\LaunchySharpCpp\testing\FilePluginLoaderTest.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\LaunchySharpCpp\testing\InputDataTest.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\LaunchySharpCpp\testing\LaunchySharpPluginWrapperTest.cpp"
 					>
 				</File>
 			</Filter>
