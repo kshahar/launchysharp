@@ -1,0 +1,61 @@
+Launchy#: .NET plugins for Launchy
+========================================
+About Launchy# 1.0.0
+-----------------------
+Launchy# is an extension to Launchy's plugin system, that allows a user to 
+develop Launchy plugins in .NET languages (C#, VB.NET, etc.). 
+
+Requirements:
+-----------------------
+ * Launchy# requires .NET framework 2.0 and above.
+
+Features:
+-----------------------
+Launchy# contains two main parts:
+ * A .NET assembly that provides the plugin API and contains all relevant 
+   interfaces.
+ * A Launchy plugin that acts as a proxy plugin, loads the .NET plugins and
+   forwards calls from Launchy to them.
+
+When Launchy starts, the proxy plugin searches for DLL files in the 'plugins'
+directory that implement the required interfaces.. 
+
+Currently, most of the Launchy plugin API is already exposed for .NET 
+plugins. Some parts are not implemented and documented below.
+
+Downloads
+-----------------------
+The project files can be downloaded from -
+http://sourceforge.net/project/showfiles.php?group_id=249465
+
+The following files are available for download:
+ * Launchy#-1.0.0-Bin.zip - contains the basic Launchy# distribution, including
+   the proxy plugin, API assembly and documentation. Extract this file in the 
+   main Launchy directory (e.g. C:\Program Files\Launchy).
+ * Go-Y#-1.0.0-Bin.zip - a full-fledged plugin that allows switching to an 
+   opened window. See that attached readme file for more details.
+ * Launchy#-1.0.0-Plugins-Src.zip - contains C# source code for the two sample 
+   plugins: SimplePlugin# and Go-Y#.
+ * Launchy#-1.0.0-Src.zip - contains the C++ and C# source code for Launchy#.
+
+How to write a plugin?
+-----------------------
+Before attempting to write your first plugin you can consult with the 
+following:
+ * API documentation (LaunchySharpAPI.chm).
+ * SimplePlugin - a simple plugin that echos the user query.
+ * Go-Y# - a full-fledged plugin that allows switching to an opened window.
+
+Currently missing in the API
+-----------------------
+Several parts of the Launchy plugin API are not implemented at the moment:
+ * Unloading a .NET plugin (remove the plugin DLL instead).
+ * Displaying a settings widget for the plugin (doDialog/endDialog messages).
+ * Support for accessing the global Launchy settings object (QSettings).
+ * launchyShow and launchyHide messages.
+ * The runProgram function
+
+License
+-----------------------
+ * Launchy# is distributed under the GNU GPL version 2.
+ * Launchy# Plugin API is distributed under the GNU LGPL version 2.1.

@@ -1,0 +1,22 @@
+Go-Y#: Switch windows with Launchy
+========================================
+About
+-----------------------
+Go-Y# is a Launchy .NET  plugin that activates open windows from Launchy. 
+It's a .NET remake of an old Launchy plugin called Go-Y.
+
+For more history, read: 
+http://sourceforge.net/forum/forum.php?thread_id=1702810&forum_id=677087
+
+Quick Tutorial
+----------------
+ * Install Go-Y#
+ * Restart Launchy 
+ * Rebuild the catalog 
+ * Bring up Launchy (Alt+Space) 
+ * Type "Go" or "Focus" and press <TAB>, then the window name you want to 
+   focus on 
+
+Installation
+---------------
+ * Unpack Go-Y#-1.0.0.zip in <Launchy>\plugins
