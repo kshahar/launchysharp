@@ -11,14 +11,10 @@
 #include <QtCore/QStringList>
 #include <QtCore/QBitArray>
 #include <QtCore/QHash>
-#include <QtCore/QDataStream>
 #include <QtCore/QDir>
 #include <QtCore/QSet>
 #include <QtCore/QSettings>
 #include <QtCore/QList>
-#include <QtCore/QTimerEvent>
-#include <QtCore/QEvent>
-#include <QtCore/QChildEvent>
 #include <QtCore/QtPlugin>
 #include <QtCore/QPluginLoader>
 #include <QtGui/QIcon>

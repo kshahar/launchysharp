@@ -6,6 +6,16 @@
 
 using namespace System::Collections::Generic;
 
+#define GUARDED_CALL_TO_PLUGIN(expr) do { \
+		try { \
+			expr \
+		} \
+		catch(System::Exception^ exception) { \
+			exception->ToString(); \
+		} \
+	} while (0); \
+//
+
 namespace LaunchySharpCpp {
 
 LaunchySharpPluginWrapper::LaunchySharpPluginWrapper(
@@ -22,25 +32,38 @@ LaunchySharpPluginWrapper::LaunchySharpPluginWrapper(
 
 void LaunchySharpPluginWrapper::init()
 {
-	m_plugin->init(m_pluginHost);
+	GUARDED_CALL_TO_PLUGIN
+	(
+		m_plugin->init(m_pluginHost);
+	);
 }
 
 void LaunchySharpPluginWrapper::getID(uint* pId)
 {
-	*pId = m_plugin->getID();
+	GUARDED_CALL_TO_PLUGIN
+	(
+		*pId = m_plugin->getID();
+	)
 }
 
 void LaunchySharpPluginWrapper::getName(QString* pName)
 {
-	System::String^ name = m_plugin->getName();
-	*pName = StringToQString(name);
+	GUARDED_CALL_TO_PLUGIN
+	(
+		System::String^ name = m_plugin->getName();
+		*pName = StringToQString(name);
+	);
 }
 
 void LaunchySharpPluginWrapper::getLabels(QList<::InputData>* pInputDataList)
 {
 	List<LaunchySharp::IInputData^>^ inputDataList =
 		m_inputDataListConverter.fromLaunchy(*pInputDataList);
-	m_plugin->getLabels(inputDataList);
+
+	GUARDED_CALL_TO_PLUGIN
+	(
+		m_plugin->getLabels(inputDataList);
+	);
 }
 
 void LaunchySharpPluginWrapper::getResults(
@@ -50,7 +73,11 @@ void LaunchySharpPluginWrapper::getResults(
 		m_inputDataListConverter.fromLaunchy(*pInputDataList);
 	List<LaunchySharp::ICatItem^>^ resultsList = 
 		gcnew List<LaunchySharp::ICatItem^>;
-	m_plugin->getResults(inputDataList, resultsList);
+
+	GUARDED_CALL_TO_PLUGIN
+	(
+		m_plugin->getResults(inputDataList, resultsList);
+	);
 
 	for each (LaunchySharp::ICatItem^ catItem in resultsList) {
 		pResultsList->append(
@@ -62,7 +89,11 @@ void LaunchySharpPluginWrapper::getCatalog(QList<::CatItem>* pCatalogItems)
 {
 	List<LaunchySharp::ICatItem^>^ catalogItems = 
 		gcnew List<LaunchySharp::ICatItem^>;
-	m_plugin->getCatalog(catalogItems);
+
+	GUARDED_CALL_TO_PLUGIN
+	(
+		m_plugin->getCatalog(catalogItems);
+	);
 
 	// TODO: Code duplication from above
 	for each (LaunchySharp::ICatItem^ catItem in catalogItems) {
@@ -78,7 +109,11 @@ void LaunchySharpPluginWrapper::launchItem(
 		m_catItemConverter.fromLaunchy(*pItemToLaunch);
 	List<LaunchySharp::IInputData^>^ inputDataList =
 		m_inputDataListConverter.fromLaunchy(*pInputDataList);
-	m_plugin->launchItem(inputDataList, itemToLaunch);
+
+	GUARDED_CALL_TO_PLUGIN
+	(
+		m_plugin->launchItem(inputDataList, itemToLaunch);
+	);
 }
 
 bool LaunchySharpPluginWrapper::hasDialog()

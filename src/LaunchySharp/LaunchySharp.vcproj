@@ -201,45 +201,15 @@
 		<Filter
 			Name="LaunchySharp"
 			>
-			<Filter
-				Name="Source Files C#"
-				>
-				<File
-					RelativePath="..\LaunchySharpAPI\LaunchySharpAPI.cs"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-							Description="Building Launchy# API"
-							CommandLine="pushd &quot;$(InputDir)&quot;&#x0D;&#x0A;msbuild LaunchySharpAPI.sln&#x0D;&#x0A;popd"
-							AdditionalDependencies="msbuild"
-							Outputs="$(InputDir)\bin\Release\Launchy#API.dll"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-							Description="Building Launchy# API"
-							CommandLine="pushd &quot;$(InputDir)&quot;&#x0D;&#x0A;msbuild LaunchySharpAPI.sln&#x0D;&#x0A;popd"
-							AdditionalDependencies="msbuild"
-							Outputs="$(InputDir)\bin\Release\Launchy#API.dll"
-						/>
-					</FileConfiguration>
-				</File>
-			</Filter>
 		</Filter>
 		<Filter
-			Name="LaunchySharpTester"
+			Name="General"
 			>
 			<Filter
 				Name="Header Files"
 				>
 				<File
-					RelativePath=".\LaunchySharpTest\Precompiled.h"
+					RelativePath=".\General\Precompiled.h"
 					>
 				</File>
 			</Filter>
@@ -247,7 +217,7 @@
 				Name="Source Files"
 				>
 				<File
-					RelativePath=".\LaunchySharpTest\Precompiled.cpp"
+					RelativePath=".\General\Precompiled.cpp"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
