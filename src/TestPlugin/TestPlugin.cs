@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+
 namespace LaunchySharp
 {
-	public class TestPlugin: IPlugin
+	public class SimplePlugin: IPlugin
 	{
 		private LaunchySharp.IPluginHost m_pluginHost = null;
 		private LaunchySharp.ICatItemFactory m_catItemFactory = null;
 		private uint m_id = 0;
-		private string m_name = "TestPlugin#";
+		private string m_name = "SimplePlugin#";
 	
 		public void init(LaunchySharp.IPluginHost pluginHost)
 		{
@@ -17,7 +18,6 @@ namespace LaunchySharp
 				m_catItemFactory = m_pluginHost.catItemFactory();
 			}
 			m_id = m_pluginHost.hash(m_name);
-			//m_id = 888888;
 		}
 		
 		public uint getID()
@@ -39,7 +39,7 @@ namespace LaunchySharp
 			((IInputData)null).getText();
 			string text = inputDataList[0].getText();
 			resultsList.Add( m_catItemFactory.createCatItem( 
-				text, "Test: " + text, getID(), getName()) );
+				text, "SimplePlugin: " + text, getID(), getName()) );
 		}
 		
 		public void getCatalog(List<ICatItem> catalogItems)
