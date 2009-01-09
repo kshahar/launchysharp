@@ -3,9 +3,9 @@
 	ProjectType="Visual C++"
 	Version="8.00"
 	Name="LaunchySharpPlugin"
-	ProjectGUID="{AF22E5F0-D994-11DD-AD8B-0800200C9A66}"
+	ProjectGUID="{A3241D7C-5192-4EC6-9ECC-1D665C2A2A63}"
 	RootNamespace="LaunchySharp"
-	Keyword="Win32Proj"
+	Keyword="ManagedCProj"
 	>
 	<Platforms>
 		<Platform
@@ -19,7 +19,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
 			>
@@ -28,6 +28,8 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
+				CommandLine=""
+				Outputs=""
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -44,6 +46,8 @@
 				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG"
 				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="Precompiled.h"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -61,7 +65,6 @@
 				AdditionalDependencies="QtCored4.lib QtGuid4.lib $(NOINHERIT)"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;$(QTDIR)\lib&quot;"
-				GenerateManifest="false"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
@@ -105,6 +108,8 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
+				CommandLine=""
+				Outputs=""
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -120,6 +125,8 @@
 				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_PLUGIN;QT_NO_DEBUG;QT_SHARED"
 				RuntimeLibrary="2"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="Precompiled.h"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -135,7 +142,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="QtCore4.lib QtGui4.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib $(NOINHERIT)"
-				OutputFile="$(OutDir)\LaunchySharp.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="&quot;$(QTDIR)\lib&quot;"
 				GenerateManifest="false"
@@ -165,6 +171,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine=""
 			/>
 		</Configuration>
 	</Configurations>
@@ -174,16 +181,16 @@
 			AssemblyName="System, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
-			RelativePath="System.Data.dll"
-			AssemblyName="System.Data, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=x86"
+			RelativePath="c:\Program Files\NUnit 2.4.8\bin\nunit.framework.dll"
+			AssemblyName="nunit.framework, Version=2.4.8.0, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
-			RelativePath="System.XML.dll"
-			AssemblyName="System.Xml, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
+			RelativePath="c:\Program Files\Launchy\Launchy#API.dll"
+			AssemblyName="Launchy#API, Version=1.0.0.0, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
-			RelativePath="..\debug\LaunchySharpAPI.dll"
-			AssemblyName="LaunchySharpAPI, Version=0.0.0.0, processorArchitecture=MSIL"
+			RelativePath="c:\Program Files\NUnit 2.4.8\bin\nunit.mocks.dll"
+			AssemblyName="nunit.mocks, Version=2.4.8.0, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
 			RelativePath="System.Windows.Forms.dll"
@@ -194,11 +201,15 @@
 		<Filter
 			Name="LaunchySharp"
 			>
+		</Filter>
+		<Filter
+			Name="General"
+			>
 			<Filter
 				Name="Header Files"
 				>
 				<File
-					RelativePath=".\LaunchySharp\PluginLoader.h"
+					RelativePath=".\General\Precompiled.h"
 					>
 				</File>
 			</Filter>
@@ -206,36 +217,22 @@
 				Name="Source Files"
 				>
 				<File
-					RelativePath=".\LaunchySharp\PluginLoader.cpp"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Source Files C#"
-				>
-				<File
-					RelativePath=".\LaunchySharp\LaunchySharpAPI.cs"
+					RelativePath=".\General\Precompiled.cpp"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
 						>
 						<Tool
-							Name="VCCustomBuildTool"
-							Description="Building LaunchySharp API"
-							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;"
-							AdditionalDependencies="csc"
-							Outputs="$(OutDir)\LaunchySharpAPI.dll"
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="1"
 						/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32"
 						>
 						<Tool
-							Name="VCCustomBuildTool"
-							Description="Building LaunchySharp API"
-							CommandLine="set OutputName=LaunchySharpAPI&#x0D;&#x0A;csc /t:library /out:&quot;$(OutDir)\%OutputName%.dll&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;regasm &quot;$(OutDir)\%OutputName%.dll&quot; /tlb:&quot;$(OutDir)\%OutputName%.tlb&quot;&#x0D;&#x0A;"
-							AdditionalDependencies="csc"
-							Outputs="$(OutDir)\LaunchySharpAPI.dll"
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="1"
 						/>
 					</FileConfiguration>
 				</File>
@@ -284,11 +281,55 @@
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\CatItemFactory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\FilePluginLoader.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\IFilePluginLoader.h"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\InputData.h"
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\InputDataFactory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\InputDataListConverter.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\IPluginLoader.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\LaunchyPaths.h"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapper.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapperFactory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\PluginFactory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\PluginHost.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\PluginLoader.h"
 					>
 				</File>
 				<File
@@ -312,7 +353,27 @@
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\CatItemFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\FilePluginLoader.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\InputData.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\InputDataFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\InputDataListConverter.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\LaunchyPaths.cpp"
 					>
 				</File>
 				<File
@@ -320,11 +381,43 @@
 					>
 				</File>
 				<File
-					RelativePath=".\LaunchySharpCpp\StringConversions.cpp"
+					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapperFactory.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\LaunchySharpCpp\TestPlugin.cpp"
+					RelativePath=".\LaunchySharpCpp\PluginHost.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\PluginLoader.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\StringConversions.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Tests"
+				>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\EmptyLaunchyPlugin.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\EmptyLaunchySharpPlugin.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\FilePluginLoaderTest.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\InputDataTest.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\LaunchySharpPluginWrapperTest.cpp"
 					>
 				</File>
 			</Filter>
@@ -345,6 +438,7 @@
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing $(InputFileName)"
 							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir) -fPrecompiled.h -f$(InputFileName)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
+							AdditionalDependencies="%QTDIR%\bin\moc"
 							Outputs="$(InputDir)\moc_$(InputName).cpp"
 						/>
 					</FileConfiguration>
@@ -355,6 +449,7 @@
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing $(InputFileName)"
 							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir) -fPrecompiled.h -f$(InputFileName)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
+							AdditionalDependencies="%QTDIR%\bin\moc"
 							Outputs="$(InputDir)\moc_$(InputName).cpp"
 						/>
 					</FileConfiguration>
@@ -369,6 +464,7 @@
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing $(InputFileName)"
 							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir) -fPrecompiled.h -f$(InputFileName)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;%QTDIR%\bin\moc&quot;"
 							Outputs="$(InputDir)\moc_$(InputName).cpp"
 						/>
 					</FileConfiguration>
@@ -379,9 +475,18 @@
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing $(InputFileName)"
 							CommandLine="pushd &quot;$(ProjectDir)&quot;&#x0D;&#x0A;&quot;%QTDIR%\bin\moc&quot; -I$(ProjectDir) -fPrecompiled.h -f$(InputFileName)  -o$(InputDir)\moc_$(InputName).cpp $(InputPath)&#x0D;&#x0A;popd&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;%QTDIR%\bin\moc&quot;"
 							Outputs="$(InputDir)\moc_$(InputName).cpp"
 						/>
 					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpPlugin\PluginManager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpPlugin\PluginManagerFactory.h"
+					>
 				</File>
 			</Filter>
 			<Filter
@@ -393,6 +498,14 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpPlugin\Plugin.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpPlugin\PluginManager.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpPlugin\PluginManagerFactory.cpp"
 					>
 				</File>
 			</Filter>
