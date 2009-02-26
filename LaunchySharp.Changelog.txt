@@ -1,0 +1,5 @@
+Version 1.0.1:
+ * Added a new create method to ICatItemFactory, with 5 paramters.
+
+Version 1.0.0:
+ * First public release

@@ -52,6 +52,17 @@ CatItem::CatItem(System::String^ full, System::String^ shortN, unsigned int id, 
 }
 
 CatItem::CatItem( System::String^ full, System::String^ shortN, unsigned int id, 
+				 System::String^ iconPath, unsigned int usage )
+{
+	m_fullPath = full;
+	m_shortName = shortN;
+	m_lowName = shortN->ToLower();
+	m_iconPath = iconPath;
+	m_usage = usage;
+	m_id = id;
+}
+
+CatItem::CatItem( System::String^ full, System::String^ shortN, unsigned int id, 
 				 System::String^ iconPath, unsigned int usage, System::String^ lowName )
 {
 	m_fullPath = full;

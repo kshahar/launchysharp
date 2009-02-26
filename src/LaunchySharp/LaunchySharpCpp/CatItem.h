@@ -16,6 +16,8 @@ namespace LaunchySharpCpp
 		CatItem(System::String^ full, System::String^ shortN, unsigned int id);
 		CatItem(System::String^ full, System::String^ shortN, unsigned int id, System::String^ iconPath);
 		CatItem(System::String^ full, System::String^ shortN, unsigned int id,
+			System::String^ iconPath, unsigned int usage);
+		CatItem(System::String^ full, System::String^ shortN, unsigned int id,
 			System::String^ iconPath, unsigned int usage, System::String^ lowName);
 
 		/// The full path of the file to execute

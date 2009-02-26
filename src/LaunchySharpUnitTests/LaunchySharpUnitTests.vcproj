@@ -184,7 +184,7 @@
 		/>
 		<AssemblyReference
 			RelativePath="c:\Program Files\Launchy\Launchy#API.dll"
-			AssemblyName="Launchy#API, Version=1.0.0.0, processorArchitecture=MSIL"
+			AssemblyName="Launchy#API, Version=1.0.1.0, processorArchitecture=MSIL"
 		/>
 	</References>
 	<Files>
@@ -294,6 +294,10 @@
 			<Filter
 				Name="Tests"
 				>
+				<File
+					RelativePath=".\LaunchySharpCpp\testing\CatItemFactoryTest.cpp"
+					>
+				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\testing\EmptyLaunchyPlugin.h"
 					>

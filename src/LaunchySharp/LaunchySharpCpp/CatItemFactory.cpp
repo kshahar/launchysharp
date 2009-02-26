@@ -12,4 +12,12 @@ LaunchySharp::ICatItem^ CatItemFactory::createCatItem(
 	return gcnew LaunchySharpCpp::CatItem( fullPath, shortName, id, iconPath );
 }
 
+LaunchySharp::ICatItem^ CatItemFactory::createCatItem(
+	System::String^ fullPath, System::String^ shortName, 
+	unsigned int id, System::String^ iconPath, unsigned int usage)
+{
+	return gcnew LaunchySharpCpp::CatItem( fullPath, shortName, id, iconPath, 
+		usage );
+}
+
 }

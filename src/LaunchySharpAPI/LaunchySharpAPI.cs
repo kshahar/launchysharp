@@ -306,6 +306,19 @@ namespace LaunchySharp
         /// <returns>The new CatItem, as a ICatItem reference</returns>
         ICatItem createCatItem(string fullPath, string shortName, uint id, 
             string iconPath);
+
+        /// <summary>
+        /// Creates a new CatItem using 5 parameters.
+        /// </summary>
+        /// <param name="fullPath">Full path of the file to execute.</param>
+        /// <param name="shortName">Abbreviated name of the indexed item.</param>
+        /// <param name="id">Owner ID of the CatItem, should be the result the
+        /// plugin ID.</param>
+        /// <param name="iconPath">Icon path</param>
+        /// <param name="usage">Usage count</param>
+        /// <returns>The new CatItem, as a ICatItem reference</returns>
+        ICatItem createCatItem(string fullPath, string shortName, uint id,
+             string iconPath, uint usage);
     }
     
     /// <summary>
