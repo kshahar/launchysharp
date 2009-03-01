@@ -133,7 +133,35 @@ namespace LaunchySharp
         /// <seealso cref="IInputData"/>
         /// <seealso cref="ICatItem"/>
         void launchItem(List<IInputData> inputDataList, ICatItem item);
-        
+
+        /// <summary>
+        /// Asks the plugin if it has a dialog to display in the options menu.
+        /// </summary>
+        bool hasDialog();
+
+        /// <summary>
+        /// Asks the plugin to return the HWND.
+        /// </summary>
+        IntPtr doDialog();
+
+        /// <summary>
+        /// Informs the plugin that it should close its dialog.
+        /// </summary>
+        /// <param name="acceptedByUser">
+        /// True if the plugin should accept changes made by the user while
+        /// the dialog was open.
+        /// </param>
+        void endDialog(bool acceptedByUser);
+
+        /// <summary>
+        /// Informs the plugin that Launchy is now visible on the screen.
+        /// </summary>
+        void launchyShow();
+
+        /// <summary>
+        /// Informs the plugin that Launchy is no longer visible on the screen.
+        /// </summary>
+        void launchyHide();
         // Currently not implemented
         //void doDialog(QWidget* parent, QWidget**);
         //void endDialog(bool accept);
