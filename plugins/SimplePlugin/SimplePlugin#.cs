@@ -51,5 +51,27 @@ namespace LaunchySharp
 				inputDataList[inputDataList.Count-1].getTopResult();
 			MessageBox.Show("I was asked to launch: " + item.getFullPath());
 		}
+		
+		public bool hasDialog()
+		{
+			return false;
+		}
+
+		public IntPtr doDialog()
+		{
+			return (IntPtr)0;
+		}
+
+		public void endDialog(bool acceptedByUser)
+		{
+		}
+
+		public void launchyShow()
+		{
+		}
+
+		public void launchyHide()
+		{
+		}
 	}
 }
