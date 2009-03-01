@@ -2,7 +2,7 @@ Go-Y#: Switch windows with Launchy
 ========================================
 About
 -----------------------
-Go-Y# is a Launchy .NET  plugin that activates open windows from Launchy. 
+Go-Y# is a Launchy# plugin that activates open windows from Launchy. 
 It's a .NET remake of an old Launchy plugin called Go-Y.
 
 For more history, read: 
