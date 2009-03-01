@@ -12,9 +12,10 @@
 #include <QtCore/QBitArray>
 #include <QtCore/QHash>
 #include <QtCore/QDir>
+#include <QtCore/QList>
+#include <QtCore/QMutex>
 #include <QtCore/QSet>
 #include <QtCore/QSettings>
-#include <QtCore/QList>
 #include <QtCore/QtPlugin>
 #include <QtCore/QPluginLoader>
 #include <QtGui/QIcon>

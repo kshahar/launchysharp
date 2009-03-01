@@ -121,7 +121,7 @@ bool LaunchySharpPluginWrapper::hasDialog()
 	return false;
 }
 
-void LaunchySharpPluginWrapper::doDialog(QWidget* parent, QWidget**)
+void LaunchySharpPluginWrapper::doDialog(QWidget* parent, QWidget** pNewWidget)
 {
 	// Not Implemented
 }

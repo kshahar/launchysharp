@@ -37,6 +37,23 @@ namespace testing
 			LaunchySharp::ICatItem^ item)
 		{	
 		}
+		virtual bool hasDialog()
+		{
+			return false;
+		}
+		virtual System::IntPtr doDialog()
+		{
+			return System::IntPtr(0);
+		}
+		virtual void endDialog(bool acceptedByUser)
+		{
+		}
+		virtual void launchyShow()
+		{
+		}
+		virtual void launchyHide()
+		{
+		}
 	};
 
 }
