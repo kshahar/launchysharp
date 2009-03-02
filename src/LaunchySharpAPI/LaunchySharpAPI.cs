@@ -140,9 +140,17 @@ namespace LaunchySharp
         bool hasDialog();
 
         /// <summary>
-        /// Asks the plugin to return the HWND.
+        /// Asks the plugin to create an options window for the Launchy 
+        /// "Options->Plugins" tab, and return a handle (HWND) to it.
         /// </summary>
-        IntPtr doDialog();
+        /// <remarks>
+        /// This function is called only if hasDialog() returns true.
+        /// </remarks>
+        /// <param name="dialogHandle">
+        /// The window handle (HWND). This parameter should be set inside the 
+        /// function if this plugin has an options window.
+        /// </param>
+        void doDialog(out IntPtr dialogHandle);
 
         /// <summary>
         /// Informs the plugin that it should close its dialog.
@@ -162,11 +170,6 @@ namespace LaunchySharp
         /// Informs the plugin that Launchy is no longer visible on the screen.
         /// </summary>
         void launchyHide();
-        // Currently not implemented
-        //void doDialog(QWidget* parent, QWidget**);
-        //void endDialog(bool accept);
-        //void launchyShow();
-        //void launchyHide();
     }
     
     /// <summary>

@@ -10,6 +10,7 @@ namespace LaunchySharp
 		private LaunchySharp.ICatItemFactory m_catItemFactory = null;
 		private uint m_id = 0;
 		private string m_name = "SimplePlugin#";
+        private Control m_optionsWidget = null;
 	
 		public void init(LaunchySharp.IPluginHost pluginHost)
 		{
@@ -54,16 +55,21 @@ namespace LaunchySharp
 		
 		public bool hasDialog()
 		{
-			return false;
+			return true;
 		}
 
-		public IntPtr doDialog()
+		public void doDialog(out IntPtr windowHandle)
 		{
-			return (IntPtr)0;
+            Form form = new Form();
+            form.BackColor = System.Drawing.Color.AliceBlue;
+            form.Show();
+            windowHandle = form.Handle;
+            m_optionsWidget = form;
 		}
 
 		public void endDialog(bool acceptedByUser)
 		{
+            m_optionsWidget.Hide();
 		}
 
 		public void launchyShow()

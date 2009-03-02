@@ -145,6 +145,30 @@ namespace testing
 			m_pWrapper->launchItem(&inputDataList, &itemToLaunch);
 			m_pluginMock->Verify();
 		}
+
+		[Test]
+		void testEndDialog()
+		{
+			m_pluginMock->Expect("endDialog");
+			m_pWrapper->endDialog(true);
+			m_pluginMock->Verify();
+		}
+
+		[Test]
+		void testLaunchyShow()
+		{
+			m_pluginMock->Expect("launchyShow");
+			m_pWrapper->launchyShow();
+			m_pluginMock->Verify();
+		}
+
+		[Test]
+		void testLaunchyHide()
+		{
+			m_pluginMock->Expect("launchyHide");
+			m_pWrapper->launchyHide();
+			m_pluginMock->Verify();
+		}
 	};
 }
 }

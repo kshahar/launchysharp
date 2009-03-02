@@ -3,6 +3,7 @@
 #include "LaunchySharpCpp/StringConversions.h"
 #include "LaunchySharpCpp/CatItemConverter.h"
 #include "LaunchySharpCpp/InputDataListConverter.h"
+#include "LaunchySharpCpp/Win32WindowWrapperWidget.h"
 
 using namespace System::Collections::Generic;
 
@@ -118,27 +119,44 @@ void LaunchySharpPluginWrapper::launchItem(
 
 bool LaunchySharpPluginWrapper::hasDialog()
 {
-	return false;
+	return m_plugin->hasDialog();
 }
 
 void LaunchySharpPluginWrapper::doDialog(QWidget* parent, QWidget** pNewWidget)
 {
-	// Not Implemented
+	if (!hasDialog()) {
+		return;
+	}
+	
+	System::IntPtr windowHandle(0);
+	m_plugin->doDialog(windowHandle);
+
+	if (windowHandle.ToInt32() == 0) {
+		return;
+	}
+
+	HWND hWnd = reinterpret_cast<HWND>( windowHandle.ToPointer() );
+
+	Win32WindowWrapperWidget* wrapperWidget = 
+		new Win32WindowWrapperWidget(parent);
+	wrapperWidget->setWindow(hWnd);
+
+	*pNewWidget = wrapperWidget;
 }
 
 void LaunchySharpPluginWrapper::endDialog(bool accept)
 {
-	// Not Implemented
+	m_plugin->endDialog(accept);
 }
 
 void LaunchySharpPluginWrapper::launchyShow()
 {
-	// Not Implemented
+	m_plugin->launchyShow();
 }
 
 void LaunchySharpPluginWrapper::launchyHide()
 {
-	// Not Implemented
+	m_plugin->launchyHide();
 }
 
 void LaunchySharpPluginWrapper::setPluginForTesting(LaunchySharp::IPlugin^ plugin)

@@ -41,9 +41,8 @@ namespace testing
 		{
 			return false;
 		}
-		virtual System::IntPtr doDialog()
+		virtual void doDialog(System::IntPtr%)
 		{
-			return System::IntPtr(0);
 		}
 		virtual void endDialog(bool acceptedByUser)
 		{

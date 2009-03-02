@@ -182,7 +182,7 @@
 		/>
 		<AssemblyReference
 			RelativePath="c:\Program Files\Launchy\Launchy#API.dll"
-			AssemblyName="Launchy#API, Version=1.0.0.0, processorArchitecture=MSIL"
+			AssemblyName="Launchy#API, Version=1.1.0.0, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
 			RelativePath="System.Windows.Forms.dll"
@@ -332,6 +332,10 @@
 					RelativePath=".\LaunchySharpCpp\TestPlugin.h"
 					>
 				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\Win32WindowWrapperWidget.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Source Files"
@@ -386,6 +390,10 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\StringConversions.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\Win32WindowWrapperWidget.cpp"
 					>
 				</File>
 			</Filter>
