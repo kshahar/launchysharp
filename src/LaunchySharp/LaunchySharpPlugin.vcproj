@@ -297,6 +297,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\LaunchySharpCpp\IOptionsWidgetHandler.h"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpCpp\IPluginLoader.h"
 					>
 				</File>
@@ -310,6 +314,10 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapperFactory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\OptionsWidgetHandler.h"
 					>
 				</File>
 				<File
@@ -378,6 +386,10 @@
 				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\LaunchySharpPluginWrapperFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpCpp\OptionsWidgetHandler.cpp"
 					>
 				</File>
 				<File

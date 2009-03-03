@@ -8,6 +8,7 @@ namespace LaunchySharpCpp
 {
 	class CatItemConverter;
 	class InputDataListConverter;
+	class IOptionsWidgetHandler;
 
 	class LaunchySharpPluginWrapper: public Launchy::Plugin
 	{
@@ -16,7 +17,8 @@ namespace LaunchySharpCpp
 			LaunchySharp::IPlugin^ plugin,
 			LaunchySharp::IPluginHost^ pluginHost,
 			CatItemConverter& catItemConverter,
-			InputDataListConverter& inputDataListConverter);
+			InputDataListConverter& inputDataListConverter,
+			IOptionsWidgetHandler& optionsWidgetHandler);
 
 		virtual void init();
 
@@ -50,5 +52,6 @@ namespace LaunchySharpCpp
 		gcroot< LaunchySharp::IPluginHost^ > m_pluginHost;
 		CatItemConverter& m_catItemConverter;
 		InputDataListConverter& m_inputDataListConverter;
+		IOptionsWidgetHandler& m_optionsWidgetHandler;
 	};
 }

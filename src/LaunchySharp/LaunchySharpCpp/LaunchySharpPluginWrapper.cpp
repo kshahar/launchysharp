@@ -3,7 +3,7 @@
 #include "LaunchySharpCpp/StringConversions.h"
 #include "LaunchySharpCpp/CatItemConverter.h"
 #include "LaunchySharpCpp/InputDataListConverter.h"
-#include "LaunchySharpCpp/Win32WindowWrapperWidget.h"
+#include "LaunchySharpCpp/IOptionsWidgetHandler.h"
 
 using namespace System::Collections::Generic;
 
@@ -23,11 +23,13 @@ LaunchySharpPluginWrapper::LaunchySharpPluginWrapper(
 	LaunchySharp::IPlugin^ plugin, 
 	LaunchySharp::IPluginHost^ pluginHost,
 	CatItemConverter& catItemConverter,
-	InputDataListConverter& inputDataListConverter)
+	InputDataListConverter& inputDataListConverter,
+	IOptionsWidgetHandler& optionsWidgetHandler)
 : m_plugin(plugin), 
   m_pluginHost(pluginHost),
   m_catItemConverter(catItemConverter),
-  m_inputDataListConverter(inputDataListConverter)
+  m_inputDataListConverter(inputDataListConverter),
+  m_optionsWidgetHandler(optionsWidgetHandler)
 {
 }
 
@@ -127,26 +129,18 @@ void LaunchySharpPluginWrapper::doDialog(QWidget* parent, QWidget** pNewWidget)
 	if (!hasDialog()) {
 		return;
 	}
-	
+
 	System::IntPtr windowHandle(0);
 	m_plugin->doDialog(windowHandle);
 
-	if (windowHandle.ToInt32() == 0) {
-		return;
-	}
-
-	HWND hWnd = reinterpret_cast<HWND>( windowHandle.ToPointer() );
-
-	Win32WindowWrapperWidget* wrapperWidget = 
-		new Win32WindowWrapperWidget(parent);
-	wrapperWidget->setWindow(hWnd);
-
-	*pNewWidget = wrapperWidget;
+	*pNewWidget = m_optionsWidgetHandler.doDialog(
+		parent, windowHandle);
 }
 
 void LaunchySharpPluginWrapper::endDialog(bool accept)
 {
 	m_plugin->endDialog(accept);
+	m_optionsWidgetHandler.endDialog();
 }
 
 void LaunchySharpPluginWrapper::launchyShow()

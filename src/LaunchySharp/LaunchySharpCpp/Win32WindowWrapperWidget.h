@@ -11,6 +11,8 @@ namespace LaunchySharpCpp
 
 		void setWindow(HWND windowHwnd);
 
+		void unsetWindow();
+
 		//! Does the actual work of resizing the contained window
 		void refitInnerWindow();
 
@@ -18,6 +20,10 @@ namespace LaunchySharpCpp
 		//! Inherited from QWidget
 		void resizeEvent(QResizeEvent* );
 
+		void showWindow(HWND hWnd);
+		void hideWindow(HWND hWnd);
+
 		HWND m_hwnd;
+		HWND m_oldParent;
 	};
 }
