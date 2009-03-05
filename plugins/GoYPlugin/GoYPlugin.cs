@@ -17,7 +17,8 @@ namespace GoYPlugin
         private WindowController m_windowController = new WindowController();
         private WindowsDictionary m_topLevelWindows;
         private WindowNameMatcher m_windowNameMatcher = new WindowNameMatcher();
-        private OptionsWidget m_optionsWidget = null;
+        //private OptionsWidget m_optionsWidget = null;
+        private OptionsWidget m_optionsWidget = new OptionsWidget();
 
         public void init(LaunchySharp.IPluginHost pluginHost)
         {
@@ -119,7 +120,7 @@ namespace GoYPlugin
 
         public void doDialog(out IntPtr windowHandle)
         {
-            m_optionsWidget = new OptionsWidget();
+            
             m_optionsWidget.isCaseSensitiveChecked =
                 m_windowNameMatcher.isCaseSensitive;
 
@@ -135,7 +136,7 @@ namespace GoYPlugin
                     m_optionsWidget.isCaseSensitiveChecked;
             }
             m_optionsWidget.Hide();
-            m_optionsWidget = null;
+            //m_optionsWidget = null;
         }
 
         public void launchyShow()
