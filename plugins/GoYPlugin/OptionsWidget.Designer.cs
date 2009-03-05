@@ -34,7 +34,7 @@ namespace GoYPlugin
             // caseSensitiveCheckBox
             // 
             this.caseSensitiveCheckBox.AutoSize = true;
-            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(3, 15);
+            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(3, 0);
             this.caseSensitiveCheckBox.Name = "caseSensitiveCheckBox";
             this.caseSensitiveCheckBox.Size = new System.Drawing.Size(140, 17);
             this.caseSensitiveCheckBox.TabIndex = 0;
