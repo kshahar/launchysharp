@@ -16,6 +16,8 @@ namespace GoYPlugin
         private uint m_labelHash = 0;
         private WindowController m_windowController = new WindowController();
         private WindowsDictionary m_topLevelWindows;
+        private WindowNameMatcher m_windowNameMatcher = new WindowNameMatcher();
+        private OptionsWidget m_optionsWidget = null;
 
         public void init(LaunchySharp.IPluginHost pluginHost)
         {
@@ -68,17 +70,18 @@ namespace GoYPlugin
                 return;
             }
 
-            string windowNameToMatch = inputDataList[1].getText().ToLower();
+            string windowNameToMatch = inputDataList[1].getText();
 		    if (windowNameToMatch == "") 
             {
                 return;
             }
+            
+            m_windowNameMatcher.windowNameToMatch = windowNameToMatch;
 
             m_topLevelWindows = m_windowController.topLevelWindows(); 
 
             foreach (string windowName in m_topLevelWindows.Keys) {
-                string windowNameLower = windowName.ToLower();
-                if (windowNameLower.IndexOf(windowNameToMatch) > -1)
+                if (m_windowNameMatcher.hasMatch(windowName))
                 {
                     ICatItem result = m_catItemFactory.createCatItem(
                         windowName + ".go-y", windowName, getID(), getIcon());
@@ -107,6 +110,40 @@ namespace GoYPlugin
             catch (Exception )
             {
             }
+        }
+
+        public bool hasDialog()
+        {
+            return true;
+        }
+
+        public void doDialog(out IntPtr windowHandle)
+        {
+            m_optionsWidget = new OptionsWidget();
+            m_optionsWidget.isCaseSensitiveChecked =
+                m_windowNameMatcher.isCaseSensitive;
+
+            m_optionsWidget.Show();
+            windowHandle = m_optionsWidget.Handle;
+        }
+
+        public void endDialog(bool acceptedByUser)
+        {
+            if (acceptedByUser)
+            {
+                m_windowNameMatcher.isCaseSensitive =
+                    m_optionsWidget.isCaseSensitiveChecked;
+            }
+            m_optionsWidget.Hide();
+            m_optionsWidget = null;
+        }
+
+        public void launchyShow()
+        {
+        }
+
+        public void launchyHide()
+        {
         }
     }
 }

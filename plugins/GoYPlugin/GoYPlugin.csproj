@@ -37,13 +37,28 @@
       <HintPath>C:\Program Files\Launchy\ManagedWinapi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WindowNameMatcher.cs" />
+    <Compile Include="OptionsWidget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionsWidget.Designer.cs">
+      <DependentUpon>OptionsWidget.cs</DependentUpon>
+    </Compile>
     <Compile Include="GoYPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindowController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OptionsWidget.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OptionsWidget.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
