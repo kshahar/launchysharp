@@ -11,7 +11,8 @@ namespace LaunchySharpCpp
 {
 	class LaunchySharpPluginWrapperFactory: public PluginFactory {
 	public:
-		LaunchySharpPluginWrapperFactory();
+		LaunchySharpPluginWrapperFactory(
+			LaunchySharp::IPluginHost^ pluginHost);
 		~LaunchySharpPluginWrapperFactory();
 
 		//! Ownership of memory is passed to the caller

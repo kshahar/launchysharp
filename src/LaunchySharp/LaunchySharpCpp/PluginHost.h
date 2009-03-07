@@ -5,7 +5,8 @@ namespace LaunchySharpCpp
 	ref class PluginHost: public LaunchySharp::IPluginHost 
 	{
 	public:
-		PluginHost();
+		PluginHost(LaunchySharp::ICatItemFactory^ catItemFactory, 
+			LaunchySharp::ILaunchyPaths^ launchyPaths);
 
 		virtual LaunchySharp::ICatItemFactory^ catItemFactory();
 

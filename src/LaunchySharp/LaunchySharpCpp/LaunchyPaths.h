@@ -5,7 +5,7 @@ namespace LaunchySharpCpp
 	ref class LaunchyPaths: public LaunchySharp::ILaunchyPaths 
 	{
 	public:
-		LaunchyPaths();
+		LaunchyPaths(const QString& configPath);
 
 		/// Usually C:\Program Files\Launchy
 		virtual System::String^ getLaunchyPath();

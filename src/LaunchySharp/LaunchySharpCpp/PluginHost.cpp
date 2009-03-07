@@ -1,17 +1,16 @@
 #include "Precompiled.h"
 #include "LaunchySharpCpp/PluginHost.h"
-#include "LaunchySharpCpp/CatItemFactory.h"
-#include "LaunchySharpCpp/LaunchyPaths.h"
 #include "LaunchySharpCpp/StringConversions.h"
 #include <QtCore/QHash>
 
 namespace LaunchySharpCpp
 {
 
-PluginHost::PluginHost()
+PluginHost::PluginHost(LaunchySharp::ICatItemFactory^ catItemFactory, 
+			LaunchySharp::ILaunchyPaths^ launchyPaths)
+: m_catItemFactory(catItemFactory),
+  m_launchyPaths(launchyPaths)
 {
-	m_catItemFactory = gcnew CatItemFactory();
-	m_launchyPaths = gcnew LaunchyPaths();
 }
 
 LaunchySharp::ICatItemFactory^ PluginHost::catItemFactory()

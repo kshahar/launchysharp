@@ -9,7 +9,7 @@
 namespace LaunchySharpPlugin
 {
 
-Plugin* g_pluginInstance = NULL;
+static Plugin* g_pluginInstance = NULL;
 const char* CONFIG_pluginName = "Launchy#";
 unsigned int CONFIG_pluginHash = qHash(CONFIG_pluginName);
 
@@ -18,7 +18,8 @@ struct Plugin::PrivateImpl
 	PluginManagerFactory pluginManagerFactory;
 	std::auto_ptr<PluginManager> pPluginManager;
 
-	PrivateImpl():
+	PrivateImpl(QSettings* settings):
+	pluginManagerFactory(settings),
 	pPluginManager(pluginManagerFactory.createPluginManager())
 	{
 	}
@@ -66,7 +67,7 @@ void Plugin::init()
 	}
 	g_pluginInstance = this;
 
-	m_pImpl.reset(new PrivateImpl);
+	m_pImpl.reset(new PrivateImpl(*settings));
 
 	const QDir pluginsDir = 
 		QCoreApplication::applicationDirPath() + 

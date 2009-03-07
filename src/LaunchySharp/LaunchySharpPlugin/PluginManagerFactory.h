@@ -1,5 +1,7 @@
 #pragma once
 
+class QSettings;
+
 namespace LaunchySharpPlugin
 {
 	class PluginManager;
@@ -7,7 +9,7 @@ namespace LaunchySharpPlugin
 	class PluginManagerFactory
 	{
 	public:
-		PluginManagerFactory();
+		PluginManagerFactory(QSettings* settings);
 		~PluginManagerFactory();
 
 		//! Ownership of memory is passed to the caller

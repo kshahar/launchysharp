@@ -19,15 +19,16 @@ struct LaunchySharpPluginWrapperFactory::PrivateImpl
 	LaunchySharpCpp::InputDataListConverter inputDataListConverter;
 	LaunchySharpCpp::OptionsWidgetHandler optionsWidgetHandler;
 
-	PrivateImpl():
-		inputDataListConverter(inputDataFactory)
+	PrivateImpl(LaunchySharp::IPluginHost^ pluginHost_):
+		inputDataListConverter(inputDataFactory),
+		pluginHost(pluginHost_)
 	{
-		pluginHost = gcnew LaunchySharpCpp::PluginHost();
 	}
 };
 
-LaunchySharpPluginWrapperFactory::LaunchySharpPluginWrapperFactory()
-: m_pImpl(new PrivateImpl)
+LaunchySharpPluginWrapperFactory::LaunchySharpPluginWrapperFactory(
+	LaunchySharp::IPluginHost^ pluginHost)
+: m_pImpl(new PrivateImpl(pluginHost))
 {
 }
 

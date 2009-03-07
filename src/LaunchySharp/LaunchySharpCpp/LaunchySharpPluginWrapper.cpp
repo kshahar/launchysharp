@@ -130,8 +130,7 @@ void LaunchySharpPluginWrapper::doDialog(QWidget* parent, QWidget** pNewWidget)
 		return;
 	}
 
-	System::IntPtr windowHandle(0);
-	m_plugin->doDialog(windowHandle);
+	System::IntPtr windowHandle = m_plugin->doDialog();
 
 	*pNewWidget = m_optionsWidgetHandler.doDialog(
 		parent, windowHandle);
