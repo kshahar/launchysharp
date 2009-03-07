@@ -9,10 +9,13 @@ namespace Launchy {
 
 namespace LaunchySharpCpp
 {
+	class IOptionsWidgetHandler;
+
 	class LaunchySharpPluginWrapperFactory: public PluginFactory {
 	public:
 		LaunchySharpPluginWrapperFactory(
-			LaunchySharp::IPluginHost^ pluginHost);
+			LaunchySharp::IPluginHost^ pluginHost,
+			LaunchySharpCpp::IOptionsWidgetHandler& optionsWidgetHandler);
 		~LaunchySharpPluginWrapperFactory();
 
 		//! Ownership of memory is passed to the caller

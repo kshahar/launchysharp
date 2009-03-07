@@ -5,7 +5,6 @@
 #include "LaunchySharpCpp/CatItemConverter.h"
 #include "LaunchySharpCpp/InputDataFactory.h"
 #include "LaunchySharpCpp/InputDataListConverter.h"
-#include "LaunchySharpCpp/OptionsWidgetHandler.h"
 #include <gcroot.h>
 
 namespace LaunchySharpCpp
@@ -17,18 +16,22 @@ struct LaunchySharpPluginWrapperFactory::PrivateImpl
 	LaunchySharpCpp::CatItemConverter catItemConverter;
 	LaunchySharpCpp::InputDataFactory inputDataFactory;
 	LaunchySharpCpp::InputDataListConverter inputDataListConverter;
-	LaunchySharpCpp::OptionsWidgetHandler optionsWidgetHandler;
+	LaunchySharpCpp::IOptionsWidgetHandler& optionsWidgetHandler;
 
-	PrivateImpl(LaunchySharp::IPluginHost^ pluginHost_):
+	PrivateImpl(
+		LaunchySharp::IPluginHost^ pluginHost_,
+		LaunchySharpCpp::IOptionsWidgetHandler& optionsWidgetHandler_):
 		inputDataListConverter(inputDataFactory),
-		pluginHost(pluginHost_)
+		pluginHost(pluginHost_),
+		optionsWidgetHandler(optionsWidgetHandler_)
 	{
 	}
 };
 
 LaunchySharpPluginWrapperFactory::LaunchySharpPluginWrapperFactory(
-	LaunchySharp::IPluginHost^ pluginHost)
-: m_pImpl(new PrivateImpl(pluginHost))
+	LaunchySharp::IPluginHost^ pluginHost,
+	LaunchySharpCpp::IOptionsWidgetHandler& optionsWidgetHandler)
+: m_pImpl(new PrivateImpl(pluginHost, optionsWidgetHandler))
 {
 }
 
