@@ -6,9 +6,8 @@
 namespace LaunchySharpCpp
 {
 
-LaunchyPaths::LaunchyPaths(const QString& configPath)
+LaunchyPaths::LaunchyPaths(QSettings* settings)
 {
-	// TODO: move out of here
 	const QString applicationDirPath = 
 		QCoreApplication::applicationDirPath();
 	m_launchyPath = QStringToString(applicationDirPath);
@@ -19,7 +18,14 @@ LaunchyPaths::LaunchyPaths(const QString& configPath)
 		QDir::separator() + QString("icons");
 	m_iconsPath = QStringToString(iconsPath);
 
-	m_configPath = QStringToString(configPath);
+	if (settings) {
+		const QString configFile = settings->fileName();
+		QFileInfo configFileInfo(configFile);
+		m_configPath = QStringToString(configFileInfo.absolutePath());
+	}
+	else {
+		m_configPath = L"";
+	}
 }
 
 System::String^ LaunchyPaths::getLaunchyPath()
