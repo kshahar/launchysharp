@@ -54,11 +54,12 @@ namespace LaunchySharp
 		
 		public bool hasDialog()
 		{
-			return true;
+			return false;
 		}
 
-		public void doDialog(out IntPtr windowHandle)
+		public IntPtr doDialog()
 		{
+			return IntPtr.Zero;
 		}
 
 		public void endDialog(bool acceptedByUser)
