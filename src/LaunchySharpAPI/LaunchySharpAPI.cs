@@ -146,11 +146,8 @@ namespace LaunchySharp
         /// <remarks>
         /// This function is called only if hasDialog() returns true.
         /// </remarks>
-        /// <param name="dialogHandle">
-        /// The window handle (HWND). This parameter should be set inside the 
-        /// function if this plugin has an options window.
-        /// </param>
-        void doDialog(out IntPtr dialogHandle);
+        /// <returns>The configuration window handle (HWND).</returns>
+        IntPtr doDialog();
 
         /// <summary>
         /// Informs the plugin that it should close its dialog.
@@ -370,5 +367,12 @@ namespace LaunchySharp
         /// </summary>
         /// <returns>The icons directory for Launchy plugins.</returns>
         string getIconsPath();
+
+        /// <summary>
+        /// Returns the Launchy configuration file directory, where 
+        /// Launchy.ini resides. Usually this is %APPDATA%\Launchy.
+        /// </summary>
+        /// <returns>The Launchy configuration directory.</returns>
+        string getConfigPath();
     }
 }
