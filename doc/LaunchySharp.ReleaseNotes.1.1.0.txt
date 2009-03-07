@@ -1,0 +1,33 @@
+Launchy#: .NET plugins for Launchy
+========================================
+New features in this version:
+-----------------------
+ * Support for a configuration dialog in the "Options->Plugins" window. See the
+   notes below, the documentation CHM and the Go-Y# plugin source for more details.
+ * Two more API functions: launchyShow(), launchyHide()
+ * A new function in LaunchyPaths: getConfigPath(). You can use this function
+   for saving plugin-specific settings.
+
+Notes about the options window
+-----------------------
+ * Related API functions are hasDialog(), doDialog(), endDialog().
+ * The Go-Y# plugin demonstrates a simple usage of this feature.
+ * At the moment, only WinForms windows were tested. Please contact the author
+   through the SourceForge project page for feedback about your experience with
+   WPF or other frameworks.
+
+Known issues:
+-----------------------
+ * Init is called more than once. Happens because Launchy calls init twice at the begining, and every time the Options window is opened.
+
+Currently missing in the API
+-----------------------
+Several parts of the Launchy plugin API are not implemented at the moment:
+ * Unloading a .NET plugin (you can remove or rename the plugin DLL instead).
+ * Support for accessing the global Launchy settings object (QSettings).
+ * The runProgram function
+
+License
+-----------------------
+ * Launchy# is distributed under the GNU GPL version 2.
+ * Launchy# Plugin API is distributed under the GNU LGPL version 2.1.
