@@ -1,3 +1,13 @@
+Version 1.1.0:
+ * Added new API functions: hasDialog(), doDialog(), endDialog(), 
+   launchyShow(), launchyHide().
+ * Added support in the LaunchySharpPlugin for the new API functions.
+ * Added locks to avoid synchronization-related issues with Launchy's threads.
+ * Added LaunchyPaths::getConfigPath()
+ * Upgraded plugins to use the new API.
+ * Improved internal architecture
+ * Improved memory management (gcroot/auto_gcroot)
+
 Version 1.0.1:
  * Added a new create method to ICatItemFactory, with 5 paramters.
 
