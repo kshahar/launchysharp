@@ -4,6 +4,8 @@
 #include "LaunchySharpCpp/LaunchySharpPluginWrapperFactory.h"
 #include "LaunchySharpCpp/StringConversions.h"
 #include "LaunchySharpCpp/testing/EmptyLaunchySharpPlugin.h"
+#include "LaunchySharpCpp/testing/FakePluginHost.h"
+#include "LaunchySharpCpp/testing/FakeOptionsWidgetHandler.h"
 
 using namespace NUnit::Framework;
 using namespace NUnit::Mocks;
@@ -33,9 +35,11 @@ namespace testing
 	{
 	private:
 		DynamicMock^ m_pluginMock;
+		LaunchySharp::IPluginHost^ m_fakePluginHost;
+		LaunchySharpCpp::IOptionsWidgetHandler* m_fakeOptionsWidgetHandler;
 		LaunchySharpCpp::LaunchySharpPluginWrapper* m_pWrapper;
 		LaunchySharpCpp::LaunchySharpPluginWrapperFactory* m_pPluginWrapperFactory;
-
+		
 	public:
 		[SetUp]
 		void setUp()
@@ -43,8 +47,13 @@ namespace testing
 			m_pluginMock = 
 				gcnew DynamicMock(LaunchySharp::IPlugin::typeid);
 
+			m_fakePluginHost = gcnew FakePluginHost();
+
+			m_fakeOptionsWidgetHandler = new FakeOptionsWidgetHandler();
+
 			m_pPluginWrapperFactory = 
-				new LaunchySharpCpp::LaunchySharpPluginWrapperFactory();
+				new LaunchySharpCpp::LaunchySharpPluginWrapperFactory(
+					m_fakePluginHost, *m_fakeOptionsWidgetHandler);
 
 			Launchy::Plugin* wrapper = m_pPluginWrapperFactory->create(
 				(LaunchySharp::IPlugin^)m_pluginMock->MockInstance);
@@ -56,6 +65,7 @@ namespace testing
 		void tearDown()
 		{
 			delete m_pPluginWrapperFactory;
+			delete m_fakeOptionsWidgetHandler;
 		}
 
 		[Test]
