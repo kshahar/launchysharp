@@ -20,7 +20,7 @@ namespace testing
 	public:
 		unsigned int labelId;
 		virtual void getLabels(
-			List<LaunchySharp::IInputData^>^ inputDataList) override
+			System::Collections::Generic::List<LaunchySharp::IInputData^>^ inputDataList) override
 		{
 			for each (LaunchySharp::IInputData^ inputData in inputDataList)
 			{

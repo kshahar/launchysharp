@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaunchySharpPlugin", "LaunchySharp\LaunchySharpPlugin.vcproj", "{A3241D7C-5192-4EC6-9ECC-1D665C2A2A63}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaunchySharpUnitTests", "LaunchySharpUnitTests\LaunchySharpUnitTests.vcproj", "{4E17BDB9-B3DA-47FF-ADDF-0384A2266D9C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A3241D7C-5192-4EC6-9ECC-1D665C2A2A63} = {A3241D7C-5192-4EC6-9ECC-1D665C2A2A63}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
