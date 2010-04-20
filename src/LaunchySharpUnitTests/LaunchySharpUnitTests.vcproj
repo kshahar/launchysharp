@@ -118,8 +118,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;;&quot;$(SolutionDir)LaunchySharpUnitTests&quot;"
-				PreprocessorDefinitions="WIN32;NDEBUG"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;;&quot;$(SolutionDir)LaunchySharp/ezlogger&quot;;&quot;$(SolutionDir)LaunchySharpUnitTests&quot;"
+				PreprocessorDefinitions="WIN32;NDEBUG;DISABLE_LOGGING"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="Precompiled.h"
@@ -171,12 +171,12 @@
 	</Configurations>
 	<References>
 		<AssemblyReference
-			RelativePath="c:\Program Files\NUnit 2.4.8\bin\nunit.framework.dll"
-			AssemblyName="nunit.framework, Version=2.4.8.0, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
+			RelativePath="c:\Program Files\NUnit 2.5.4\bin\net-2.0\framework\nunit.framework.dll"
+			AssemblyName="nunit.framework, Version=2.5.4.10098, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
-			RelativePath="c:\Program Files\NUnit 2.4.8\bin\nunit.mocks.dll"
-			AssemblyName="nunit.mocks, Version=2.4.8.0, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
+			RelativePath="c:\Program Files\NUnit 2.5.4\bin\net-2.0\framework\nunit.mocks.dll"
+			AssemblyName="nunit.mocks, Version=2.5.4.10098, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
 			RelativePath="System.dll"
@@ -277,13 +277,6 @@
 				<File
 					RelativePath="..\LaunchySharp\LaunchySharpCpp\LaunchySharpPluginWrapperFactory.cpp"
 					>
-					<FileConfiguration
-						Name="Release|Win32"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-						/>
-					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\LaunchySharp\LaunchySharpCpp\PluginHost.cpp"
