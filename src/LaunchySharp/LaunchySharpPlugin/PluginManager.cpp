@@ -30,6 +30,8 @@ void PluginManager::loadPluginsFromDirectory(const QDir& pluginsDirectory)
 		Launchy::Plugin* plugin = m_filePluginLoader.loadPlugin(absoluteFileName);
 
 		if (plugin != NULL) {
+			LOG_INFO("Adding plugin from file name %s", 
+				fileName.toAscii().constData());
 			addPlugin(plugin);
 		}
 	}
@@ -58,11 +60,18 @@ void PluginManager::addPlugin(Launchy::Plugin* pPlugin)
 
 	// Create PluginInfo so we can tell launchy about the plugin
 	PluginInfo launchyPluginInfo;
+
 	pPluginWrapper->msg(MSG_INIT, NULL, NULL);
 	pPluginWrapper->msg(MSG_GET_ID, &launchyPluginInfo.id, NULL);
 	pPluginWrapper->msg(MSG_GET_NAME, &launchyPluginInfo.name, NULL);
+
 	launchyPluginInfo.path = "";
 	launchyPluginInfo.obj = pPluginWrapper;
+
+	LOG_INFO("Plugin info (id, name): (%i, %s)",
+		launchyPluginInfo.id,
+		launchyPluginInfo.name.toLatin1().constData()
+	);
 	
 	m_pluginWrappers[launchyPluginInfo.id] = launchyPluginInfo;
 	m_plugins.append(pPlugin);

@@ -122,7 +122,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(SolutionDir)LaunchySharp&quot;;&quot;$(SolutionDir)LaunchySharp/Launchy&quot;;&quot;$(SolutionDir)LaunchySharp/ezlogger&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_PLUGIN;QT_NO_DEBUG;QT_SHARED;LAUNCHY_SHARP_BUILD_DLL"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
@@ -417,6 +417,14 @@
 				Name="Header Files"
 				>
 				<File
+					RelativePath=".\LaunchySharpPlugin\DialogLocker.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpPlugin\InPluginLocker.h"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpPlugin\LaunchyPluginWrapper.h"
 					>
 					<FileConfiguration
@@ -481,6 +489,14 @@
 				Name="Source Files"
 				>
 				<File
+					RelativePath=".\LaunchySharpPlugin\DialogLocker.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LaunchySharpPlugin\InPluginLocker.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\LaunchySharpPlugin\LaunchyPluginWrapper.cpp"
 					>
 				</File>
@@ -509,6 +525,46 @@
 					>
 				</File>
 			</Filter>
+		</Filter>
+		<Filter
+			Name="ezlogger"
+			>
+			<File
+				RelativePath=".\ezlogger\ezlogger.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ezlogger\ezlogger_format_policy.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ezlogger\ezlogger_headers.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ezlogger\ezlogger_macros.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ezlogger\ezlogger_misc.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ezlogger\ezlogger_output_policy.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ezlogger\ezlogger_verbosity_level_policy.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\launchysharp_ezlogger_adapter.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ezlogger\launchysharp_ezlogger_adapter.h"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>

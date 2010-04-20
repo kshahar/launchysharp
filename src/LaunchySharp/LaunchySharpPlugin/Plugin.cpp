@@ -67,6 +67,8 @@ void Plugin::init()
 	}
 	g_pluginInstance = this;
 
+	LOG_DEBUG("Initializing");
+
 	m_pImpl.reset(new PrivateImpl(*settings));
 
 	const QDir pluginsDir = 
