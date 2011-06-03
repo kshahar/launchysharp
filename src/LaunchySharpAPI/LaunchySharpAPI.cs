@@ -20,7 +20,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 using System;
 using System.Collections.Generic;
 
-// The LaunchySharp namespace contains the public API of Launchy#.
 namespace LaunchySharp
 {
     /// <summary>
@@ -137,6 +136,9 @@ namespace LaunchySharp
         /// <summary>
         /// Asks the plugin if it has a dialog to display in the options menu.
         /// </summary>
+        /// <returns>
+        /// True if the plugin has an options dialog, or false otherwise.
+        /// </returns>
         bool hasDialog();
 
         /// <summary>
@@ -171,7 +173,8 @@ namespace LaunchySharp
         /// <summary>
         /// This message informs Launchy of what directory the plugin was loaded from.
         /// This can be helpful in determining where the icon should be loaded from.
-        ///</summary>
+        /// </summary>
+        /// <param name="pluginPath">The plugin path</param>
         void setPath(string pluginPath);
     }
     

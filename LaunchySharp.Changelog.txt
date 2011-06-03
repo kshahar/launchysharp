@@ -1,3 +1,7 @@
+Version 1.2.0:
+ * Plugins can also be loaded from %APPDATA%\Launchy\plugins. Thanks to romech.
+ * Added new API function: setPath
+
 Version 1.1.0:
  * Added new API functions: hasDialog(), doDialog(), endDialog(), 
    launchyShow(), launchyHide().
