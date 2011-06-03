@@ -181,8 +181,8 @@
 			AssemblyName="System, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
-			RelativePath="c:\Program Files\Launchy\Launchy#API.dll"
-			AssemblyName="Launchy#API, Version=1.1.0.0, processorArchitecture=MSIL"
+			RelativePath="..\LaunchySharpAPI\bin\Release\Launchy#API.dll"
+			AssemblyName="Launchy#API, Version=1.1.0.0, processorArchitecture=IA64"
 		/>
 		<AssemblyReference
 			RelativePath="System.Windows.Forms.dll"
@@ -264,6 +264,10 @@
 			<Filter
 				Name="Header Files"
 				>
+				<File
+					RelativePath=".\LaunchySharpCpp\AssemblyResolver.h"
+					>
+				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\CatItem.h"
 					>
@@ -348,6 +352,10 @@
 			<Filter
 				Name="Source Files"
 				>
+				<File
+					RelativePath=".\LaunchySharpCpp\AssemblyResolver.cpp"
+					>
+				</File>
 				<File
 					RelativePath=".\LaunchySharpCpp\CatItem.cpp"
 					>
@@ -558,7 +566,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\launchysharp_ezlogger_adapter.cpp"
+				RelativePath="..\..\..\launchysharp_svn\src\LaunchySharp\ezlogger\launchysharp_ezlogger_adapter.cpp"
 				>
 			</File>
 			<File

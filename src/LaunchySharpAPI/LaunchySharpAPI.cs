@@ -167,6 +167,12 @@ namespace LaunchySharp
         /// Informs the plugin that Launchy is no longer visible on the screen.
         /// </summary>
         void launchyHide();
+
+        /// <summary>
+        /// This message informs Launchy of what directory the plugin was loaded from.
+        /// This can be helpful in determining where the icon should be loaded from.
+        ///</summary>
+        void setPath(string pluginPath);
     }
     
     /// <summary>

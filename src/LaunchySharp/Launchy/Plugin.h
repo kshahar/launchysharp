@@ -20,5 +20,6 @@ namespace Launchy
 		virtual void endDialog(bool accept) = 0;
 		virtual void launchyShow() = 0;
 		virtual void launchyHide() = 0;
+		virtual void setPath(QString*) = 0;
 	};
 }

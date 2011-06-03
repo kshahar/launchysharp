@@ -21,6 +21,7 @@ namespace testing
 		virtual void endDialog(bool accept) {}
 		virtual void launchyShow() {}
 		virtual void launchyHide() {}
+		virtual void setPath(QString*) {}
 	};
 
 }

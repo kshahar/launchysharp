@@ -166,25 +166,26 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="&quot;$(ProjectDir)..\lib\NUnit\bin\net-2.0\nunit-console-x86.exe&quot; &quot;$(TargetPath)&quot;"
 			/>
 		</Configuration>
 	</Configurations>
 	<References>
 		<AssemblyReference
-			RelativePath="c:\Program Files\NUnit 2.5.4\bin\net-2.0\framework\nunit.framework.dll"
-			AssemblyName="nunit.framework, Version=2.5.4.10098, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
+			RelativePath="..\lib\NUnit\bin\net-2.0\framework\nunit.framework.dll"
+			AssemblyName="nunit.framework, Version=2.5.10.11092, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
-			RelativePath="c:\Program Files\NUnit 2.5.4\bin\net-2.0\framework\nunit.mocks.dll"
-			AssemblyName="nunit.mocks, Version=2.5.4.10098, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
+			RelativePath="..\lib\NUnit\bin\net-2.0\framework\nunit.mocks.dll"
+			AssemblyName="nunit.mocks, Version=2.5.10.11092, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
 			RelativePath="System.dll"
 			AssemblyName="System, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
 		/>
 		<AssemblyReference
-			RelativePath="c:\Program Files\Launchy\Launchy#API.dll"
-			AssemblyName="Launchy#API, Version=1.1.0.0, processorArchitecture=MSIL"
+			RelativePath="..\LaunchySharpAPI\bin\Release\Launchy#API.dll"
+			AssemblyName="Launchy#API, Version=1.1.0.0, processorArchitecture=IA64"
 		/>
 	</References>
 	<Files>

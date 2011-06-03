@@ -152,6 +152,15 @@ void LaunchySharpPluginWrapper::launchyHide()
 	m_plugin->launchyHide();
 }
 
+void LaunchySharpPluginWrapper::setPath(QString* pPluginPath)
+{
+	GUARDED_CALL_TO_PLUGIN
+	(
+		m_plugin->setPath(QStringToString(*pPluginPath));
+	);
+}
+
+
 void LaunchySharpPluginWrapper::setPluginForTesting(LaunchySharp::IPlugin^ plugin)
 {
 	m_plugin = plugin;

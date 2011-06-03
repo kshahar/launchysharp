@@ -179,6 +179,15 @@ namespace testing
 			m_pWrapper->launchyHide();
 			m_pluginMock->Verify();
 		}
+
+		[Test]
+		void testSetPath()
+		{
+			m_pluginMock->Expect("setPath");
+			QString path("temp");
+			m_pWrapper->setPath(&path);
+			m_pluginMock->Verify();
+		}
 	};
 }
 }

@@ -54,6 +54,10 @@ namespace testing
 		virtual void launchyHide()
 		{
 		}
+		
+		virtual void setPath(System::String^)
+		{
+		}
 	};
 
 }

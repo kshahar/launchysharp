@@ -17,9 +17,10 @@ struct Plugin::PrivateImpl
 {
 	PluginManagerFactory pluginManagerFactory;
 	std::auto_ptr<PluginManager> pPluginManager;
+	QString path;
 
-	PrivateImpl(QSettings* settings):
-	pluginManagerFactory(settings),
+	PrivateImpl(QSettings* settings, const char* pluginPath):
+	pluginManagerFactory(settings, pluginPath),
 	pPluginManager(pluginManagerFactory.createPluginManager())
 	{
 	}
@@ -55,9 +56,12 @@ int Plugin::msg(int msgId, void* wParam, void* lParam)
 		// This is the only case we return false
 		return false;
 	}
-	
+	else if (msgId == MSG_PATH) {
+		setPath((QString*) wParam);
+	}
+
 	// Message was handled so we return true
-	return true;	
+	return true;
 }
 
 void Plugin::init()
@@ -67,15 +71,7 @@ void Plugin::init()
 	}
 	g_pluginInstance = this;
 
-	LOG_DEBUG("Initializing");
-
-	m_pImpl.reset(new PrivateImpl(*settings));
-
-	const QDir pluginsDir = 
-		QCoreApplication::applicationDirPath() + 
-		QDir::separator() +
-		"plugins";
-	m_pImpl->pPluginManager->loadPluginsFromDirectory(pluginsDir);
+	LOG_INFO("Initializing");
 }
 
 void Plugin::getID(uint* pId)
@@ -90,12 +86,42 @@ void Plugin::getName(QString* pName)
 
 void Plugin::loadPlugins(QList<PluginInfo>* additionalPlugins)
 {
+	LOG_INFO("Beginning to load plugins");
+
+	if (!m_pImpl->path.isEmpty()) { 
+		m_pImpl->pPluginManager->loadPluginsFromDirectory(m_pImpl->path);
+	}
+
+	const QDir pluginsDir = QCoreApplication::applicationDirPath() +
+			QDir::separator() + 
+			"plugins";
+
+	if (pluginsDir != m_pImpl->path) {
+		// try also standard plugin directory, if it's not the one we've started in
+		m_pImpl->pPluginManager->loadPluginsFromDirectory(pluginsDir);
+	}
+	
 	m_pImpl->pPluginManager->sendPluginsToLaunchy(additionalPlugins);
 }
 
 void Plugin::unloadPlugin(uint id)
 {
+	LOG_INFO("Unloading plugin %d", id);
 	m_pImpl->pPluginManager->unloadPlugin(id);
+}
+
+void Plugin::setPath(QString* pPluginPath)
+{
+	if (m_pImpl.get() != NULL) {
+		return;
+	}
+
+	const QByteArray pathByteArray = pPluginPath->toLatin1();
+	const char* path = pathByteArray.constData();
+	LOG_INFO("Plugin path is %s", path);
+
+	m_pImpl.reset(new PrivateImpl(*settings, path));
+	m_pImpl->path = *pPluginPath;
 }
 
 }

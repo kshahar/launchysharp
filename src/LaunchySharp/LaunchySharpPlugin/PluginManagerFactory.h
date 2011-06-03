@@ -9,7 +9,7 @@ namespace LaunchySharpPlugin
 	class PluginManagerFactory
 	{
 	public:
-		PluginManagerFactory(QSettings* settings);
+		PluginManagerFactory(QSettings* settings, const char* pluginPath);
 		~PluginManagerFactory();
 
 		//! Ownership of memory is passed to the caller
@@ -19,7 +19,11 @@ namespace LaunchySharpPlugin
 		PluginManagerFactory(const PluginManagerFactory&);
 		PluginManagerFactory& operator=(const PluginManagerFactory&);
 
-		// Private implmentation in source file
+		// Some way of doing initialization before PrivateImpl is constructed
+		struct Initialization;
+		std::auto_ptr<Initialization> m_pInit;
+
+		// Private implementation in source file
 		struct PrivateImpl;
 		std::auto_ptr<PrivateImpl> m_pImpl;
 	};

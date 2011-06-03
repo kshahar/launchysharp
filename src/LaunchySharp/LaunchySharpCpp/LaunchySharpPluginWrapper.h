@@ -44,6 +44,8 @@ namespace LaunchySharpCpp
 
 		virtual void launchyHide();
 
+		virtual void setPath(QString* pPluginPath);
+
 		// Should not be used in production
 		void setPluginForTesting(LaunchySharp::IPlugin^ plugin);
 

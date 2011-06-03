@@ -31,7 +31,11 @@ namespace GoYPlugin
             m_name = ("Go-Y#");
             m_id = m_pluginHost.hash(m_name);
             m_labelHash = m_id;
-            m_iconPath = m_launchyPaths.getIconsPath() + "\\Go-Y#.ico";
+            if (m_iconPath == "")
+            {
+                //set default only if empty. Should have already been set in setPath()
+                m_iconPath = m_launchyPaths.getIconsPath() + "\\Go-Y#.ico";
+            }
         }
 
         public uint getID()
@@ -71,7 +75,7 @@ namespace GoYPlugin
             }
 
             string windowNameToMatch = inputDataList[1].getText();
-		    if (windowNameToMatch == "") 
+            if (windowNameToMatch == "") 
             {
                 return;
             }
@@ -141,6 +145,11 @@ namespace GoYPlugin
 
         public void launchyHide()
         {
+        }
+
+        public void setPath(string path)
+        {
+            m_iconPath = path + "\\icons\\Go-Y#.ico";
         }
     }
 }

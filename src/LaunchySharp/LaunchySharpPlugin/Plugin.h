@@ -26,6 +26,7 @@ namespace LaunchySharpPlugin
 		void getName(QString* pName);
 		void loadPlugins(QList<PluginInfo>* additionalPlugins);
 		void unloadPlugin(uint id);
+		void setPath(QString* pPluginPath);
 
 		// Private implmentation in source file
 		struct PrivateImpl;

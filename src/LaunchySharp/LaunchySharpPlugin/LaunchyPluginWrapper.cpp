@@ -97,6 +97,10 @@ bool LaunchyPluginWrapper::dispatchFunction(int msgId, void* wParam,
 			handled = true;
 			m_plugin.launchyHide();
 			break;
+		case MSG_PATH:
+			handled = true;
+			m_plugin.setPath((QString*) wParam);
+			break;
 
 		default:
 			break;

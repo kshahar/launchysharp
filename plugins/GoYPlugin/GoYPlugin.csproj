@@ -28,13 +28,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Launchy#API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Launchy#API, Version=1.1.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>c:\Program Files\Launchy\Launchy#API.dll</HintPath>
+      <HintPath>..\..\src\LaunchySharpAPI\bin\Release\Launchy#API.dll</HintPath>
     </Reference>
     <Reference Include="ManagedWinapi, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Launchy\ManagedWinapi.dll</HintPath>
+      <HintPath>managedwinapi-0.3\ManagedWinapi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

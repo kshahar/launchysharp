@@ -32,7 +32,7 @@ namespace LaunchySharpPlugin
 		void PluginManager::unloadPlugin(uint id);
 
 	private:
-		void addPlugin(Launchy::Plugin* pPlugin);
+		void addPlugin(Launchy::Plugin* pPlugin, QString path);
 
 		void destroyPlugins();
 

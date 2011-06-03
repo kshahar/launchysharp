@@ -32,7 +32,7 @@ void PluginManager::loadPluginsFromDirectory(const QDir& pluginsDirectory)
 		if (plugin != NULL) {
 			LOG_INFO("Adding plugin from file name %s", 
 				fileName.toAscii().constData());
-			addPlugin(plugin);
+			addPlugin(plugin, pluginsDirectory.absolutePath());
 		}
 	}
 }
@@ -53,7 +53,7 @@ void PluginManager::unloadPlugin(uint id)
 {
 }
 
-void PluginManager::addPlugin(Launchy::Plugin* pPlugin)
+void PluginManager::addPlugin(Launchy::Plugin* pPlugin, QString path)
 {
 	PluginInterface* pPluginWrapper = 
 		new LaunchyPluginWrapper(*pPlugin);
@@ -64,6 +64,7 @@ void PluginManager::addPlugin(Launchy::Plugin* pPlugin)
 	pPluginWrapper->msg(MSG_INIT, NULL, NULL);
 	pPluginWrapper->msg(MSG_GET_ID, &launchyPluginInfo.id, NULL);
 	pPluginWrapper->msg(MSG_GET_NAME, &launchyPluginInfo.name, NULL);
+	pPluginWrapper->msg(MSG_PATH, &path, NULL);
 
 	launchyPluginInfo.path = "";
 	launchyPluginInfo.obj = pPluginWrapper;
