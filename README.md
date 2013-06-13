@@ -17,16 +17,9 @@ Downloads
 
 Links
 -------
+  - [Website][Website]
   - [Project downloads][Downloads] (SourceForge)
   - [Forum][Forum] (SourceForge)
-
-Community plugins
--------
-Community plugins that use Launchy#:
-
-  - [Launchy2Skype][Launchy2Skype] - use Launchy to open Skype chat windows with your friends.
-  - [CSVy][CSVy] - A Launchy# plugin to access CSV files directly in Launchy.
-  - [launchy-translate][launchy-translate] - translation plugin (uses Lingvo).
 
 Your first plugin
 -------
@@ -38,6 +31,14 @@ Before attempting to develop your first plugin you can consult with the followin
 
 The source code for both of the plugins is available under the "plugins" directory.
 
+Community plugins
+-------
+Community plugins that use Launchy#:
+
+  - [Launchy2Skype][Launchy2Skype] - use Launchy to open Skype chat windows with your friends.
+  - [CSVy][CSVy] - A Launchy# plugin to access CSV files directly in Launchy.
+  - [launchy-translate][launchy-translate] - translation plugin (uses Lingvo).
+
 Requirements
 -------
 Launchy# requires Launchy 2.5 and .NET framework 2.0 and above.
@@ -48,10 +49,11 @@ License
   - The Launchy# .NET plugin API is licensed under the terms of the GNU Lesser General Public License version 2.0 (LGPLv2).
 
   [launchy]: http://launchy.net
+  [Website]: http://launchysharp.sourceforge.net
   [launchy#bin]: http://sourceforge.net/projects/launchysharp/files/Launchy%23/1.1.1/LaunchySharp-1.1.1-Bin.zip/download
   [go-y]: http://sourceforge.net/projects/launchysharp/files/Go-Y%23/1.1.0/Go-YSharp-1.1.0-Bin.zip/download
   [Launchy2Skype]: http://home.spurgius.com/launchy2skype
-  [CSVy]: http://code.google.com/p/csvy/
+  [CSVy]: https://github.com/gotson/csvy
   [launchy-translate]: http://code.google.com/p/launchy-translate/
   [Downloads]: http://sourceforge.net/projects/launchysharp/files/
   [Forum]: https://sourceforge.net/p/launchysharp/discussion/903447
