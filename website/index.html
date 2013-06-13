@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<!-- Meta Data -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Launchy#: .NET plugins for Launchy" />
+<meta name="keywords" content="Launchy#,LaunchySharp,.NET,Plugin" />
+
+<!-- Site Title -->
+<title>Launchy#: .NET plugins for Launchy</title>
+
+<!-- Link to Style External Sheet -->
+<link href="css/style.css" type="text/css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+<div id="page_wrapper">
+
+<div id="page_header">
+
+<h1>Launchy#</h1>
+<h2>.NET plugins for Launchy</h2>
+
+</div>
+<div id="menu_bar">
+<ul>
+<li><a href="http://sourceforge.net/projects/launchysharp">Project Home</a></li>
+<li><a href="http://sourceforge.net/projects/launchysharp/files/">Downloads</a></li>
+<li><a href="http://sourceforge.net/forum/forum.php?forum_id=903447">Forum</a></li>
+<li><a href='http://sourceforge.net/export/rss2_project.php?group_id=249465'>RSS</a></li>
+</ul>
+</div>
+
+<div id="content_wrapper">
+
+<div id="left_side">
+
+<h3>Welcome to Launchy#</h3>
+<p>
+Launchy# is an extension to Launchy's plugin system, that allows developing Launchy plugins in .NET languages (C#, VB.NET, etc.).
+</p>
+
+<h3>Features</h3>
+<p>
+Launchy# contains two main parts:
+<ul class="arrow_list">
+<li>A .NET assembly that provides the plugin API and contains all relevant interfaces.</li>
+<li>A Launchy plugin that acts as a proxy: loads the .NET plugins and forwards calls from Launchy to them.</li>
+</ul>
+</p>
+
+<p>
+When Launchy starts, the proxy plugin searches for DLL files in the 'plugins' directory that implement the required interfaces. The .NET plugins are loaded and wrapped, so that Launchy treats them as regular Launchy plugins.
+</p>
+
+<h3>Requirements</h3>
+<p>
+Launchy# requires Launchy 2.5 and .NET framework 2.0 and above.
+</p>
+
+<h3>Downloads</h3>
+<p>
+The project files can be downloaded from the project <a href='https://sourceforge.net/projects/launchysharp/files/'>download page</a>. The following files are available for download:
+<ul class="arrow_list">
+<li><a href='http://sourceforge.net/projects/launchysharp/files/Launchy%23/1.1.1/LaunchySharp-1.1.1-Bin.zip/download'>Launchy#-1.1.1-Bin.zip</a> - contains the basic Launchy# distribution, including the proxy plugin, API assembly and documentation. Extract this file in the main Launchy directory (e.g. C:\Program Files\Launchy).</li>
+<li><a href='http://sourceforge.net/projects/launchysharp/files/Go-Y%23/1.1.0/Go-YSharp-1.1.0-Bin.zip/download'>Go-Y#-1.1.0-Bin.zip</a> - a full-fledged plugin that allows switching to an opened window. See the attached readme file for more details.</li>
+<li><a href='http://sourceforge.net/projects/launchysharp/files/Launchy%23/1.1.0/LaunchySharp-1.1.0-Plugins-Src.zip/download'>Launchy#-1.1.0-Plugins-Src.zip</a> - contains C# source code for the two sample plugins: SimplePlugin# and Go-Y#.</li>
+<li><a href='http://sourceforge.net/projects/launchysharp/files/Launchy%23/1.1.0/LaunchySharp-1.1.0-Src.zip/download'>Launchy#-1.1.0-Src.zip</a> - contains the C++ and C# source code for Launchy#. </li>
+</ul>
+</p>
+
+<h3>How to write a plugin?</h3>
+<p>
+Before attempting to write your first plugin you can consult with the following:
+<ul class="arrow_list">
+<li>API documentation that comes with Launchy# (LaunchySharpAPI.chm).</li>
+<li>SimplePlugin - a simple plugin that echos the user query.</li>
+<li>Go-Y# - a full-fledged plugin that allows switching to an opened window.</li>
+</ul>
+</p>
+
+<h3>License</h3>
+<p>
+<ul class="arrow_list">
+<li>Launchy# is distributed under the GNU GPL version 2.</li>
+<li>Launchy# Plugin API is distributed under the GNU LGPL version 2.1.</li>
+</ul>
+</p>
+
+<h3>Community plugins</h3>
+<p>
+Community plugins that use Launchy#:
+<ul class="arrow_list">
+<li><a href='http://home.spurgius.com/launchy2skype/'>Launchy2Skype</a> - use Launchy to open Skype chat windows of your friends</li>
+<li><a href='https://github.com/gotson/csvy'>CSVy</a> - A Launchy# plugin to access CSV files directly in Launchy</li>
+<li><a href='http://code.google.com/p/launchy-translate/'>launchy-translate</a> - translation plugin (uses Lingvo)</li>
+</ul>
+</p>
+
+</div>
+
+</div>
+
+<div id="page_footer">
+
+<!--
+Website theme copyright:
+Copyright: Darren Hester 2006, http://www.designsbydarren.com
+License: Released Under the "Creative Commons License", 
+http://creativecommons.org/licenses/by-nc/2.5/
+-->
+<p>
+&copy; Copyright 2009, Shahar Kosti. <br />
+Website theme by: &copy; 2006 Darren Hester, DesignsByDarren.com, Some Rights Reserved.<br />
+
+<a href="http://validator.w3.org/check?uri=referer" target="_blank">Valid XHTML 1.0 Transitional</a></p>
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5448736-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+</html>
